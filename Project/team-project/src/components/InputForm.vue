@@ -10,7 +10,7 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <!-- 모달 헤더 -->
-          <div class="modal-header p-4">
+          <div class="modal-header">
             <h5 class="modal-title">새 거래 등록</h5>
             <button
               type="button"
@@ -20,7 +20,7 @@
             ></button>
           </div>
           <!-- 모달 본문 -->
-          <div class="modal-body p-5">
+          <div class="modal-body">
             <form @submit.prevent="submitForm">
               <!-- 거래 유형 -->
               <div class="mb-3">
@@ -158,6 +158,10 @@ export default {
 .modal-content {
   background-color: #fff;
   width: 448px;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
 }
 .btn-custom-primary {
   background-color: #0d6efd; /* 기본 Bootstrap primary 색상: 필요에 따라 변경 */

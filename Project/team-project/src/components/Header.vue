@@ -1,12 +1,18 @@
+<script>
+import { RouterLink } from "vue-router";
+</script>
+
 <template>
   <nav class="navbar">
     <div class="navbar-left">
       <div class="logo-box"></div>
-      <div class="navbar-center">
-        <a href="#" class="nav-item">대시보드</a>
-        <a href="#" class="nav-item">전체 거래 내역</a>
-        <a href="#" class="nav-item">예산 관리</a>
-      </div>
+      <nav class="navbar-center">
+        <RouterLink class="nav-item" to="/">대시보드</RouterLink>
+        <RouterLink class="nav-item" to="/transactions"
+          >전체 거래 내역</RouterLink
+        >
+        <RouterLink class="nav-item" to="/calander">캘린더</RouterLink>
+      </nav>
     </div>
 
     <div class="navbar-right">
@@ -25,13 +31,14 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 64px;
+  height: 80px;
   justify-content: space-between;
   align-items: center;
 
   padding: 0 5px;
-  box-shadow: 0 2px rgba(0, 0, 0, 0.1);
-  background: rgba(0, 0, 0, 0);
+  box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
 
 .navbar-left {

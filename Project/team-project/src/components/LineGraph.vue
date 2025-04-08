@@ -64,14 +64,14 @@ export default {
 .inner-box {
   display: flex;
   gap: 12px;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
 }
 .income-box {
   background-color: #eef2ff;
   border-radius: 8px;
   width: 100%;
   height: 84px;
-  padding: 10px;
+  padding: 0 20px 0 20px;
   align-content: center;
 }
 .expense-box {
@@ -79,24 +79,30 @@ export default {
   border-radius: 8px;
   width: 100%;
   height: 84px;
-  padding: 10px;
+  padding: 0 20px 0 20px;
   align-content: center;
 }
 #income-amount {
   color: #4f46e5;
   font-size: 24px;
   font-weight: bold;
+  margin: 0;
+  margin-top: 5px;
 }
 #expense-amount {
   color: #dc2626;
   font-size: 24px;
   font-weight: bold;
+  margin: 0;
+  margin-top: 5px;
 }
 #this-month-text {
   color: #6b7280;
   font-size: 14px;
+  margin: 0;
 }
 .chart-wrapper {
   height: 300px;
+  margin: 0;
 }
 </style>

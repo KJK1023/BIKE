@@ -1,7 +1,40 @@
-<script setup></script>
+<script>
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Line } from "vue-chartjs";
+import * as chartConfig from "./line-chart-config";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+export default {
+  name: "App",
+  components: {
+    Line,
+  },
+  data() {
+    return chartConfig;
+  },
+};
+</script>
 
 <template>
-  <div class="graph-box">
+  <div class="line-chart-box">
     <div class="inner-box">
       <div class="income-box">
         <p id="this-month-text">이번 달 수익</p>
@@ -12,11 +45,14 @@
         <p id="expense-amount">₩2,180,000</p>
       </div>
     </div>
+    <div class="chart-wrapper">
+      <Line :data="data" :options="options" />
+    </div>
   </div>
 </template>
 
 <style scoped>
-.graph-box {
+.line-chart-box {
   background-color: #fff;
   width: 780px;
   height: 456px;
@@ -28,6 +64,7 @@
 .inner-box {
   display: flex;
   gap: 12px;
+  margin-bottom: 14px;
 }
 .income-box {
   background-color: #eef2ff;
@@ -58,5 +95,8 @@
 #this-month-text {
   color: #6b7280;
   font-size: 14px;
+}
+.chart-wrapper {
+  height: 300px;
 }
 </style>

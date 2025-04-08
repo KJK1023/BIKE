@@ -1,13 +1,13 @@
 <script>
-import LineGraph from "../components/LineGraph.vue";
+import Calander from "../components/Calander.vue";
 
 export default {
   components: {
-    LineGraph,
+    Calander,
   },
 };
 </script>
 
 <template>
-  <line-graph />
+  <calander />
 </template>

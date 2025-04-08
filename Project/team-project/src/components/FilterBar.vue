@@ -92,6 +92,8 @@
   </template>
   
   <script>
+  import 'bootstrap/dist/css/bootstrap.css';
+  import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // 또는 bootstrap.js
   export default {
     name: 'TransactionFilterBar',
     

@@ -34,7 +34,7 @@
             <td>{{ transaction.memo || '-' }}</td>
             <td class="text-center">
               <button class="btn btn-sm btn-link text-primary p-0 me-2" @click="editTransaction(transaction, index)">
-                <i class="bi bi-pencil-square"></i>
+                <img src="@/assets/EDIT_BUTTON.svg" alt="수정" style="width: 1em; height: 1em; vertical-align: middle;">
               </button>
               <button class="btn btn-sm btn-link text-danger p-0" @click="deleteTransaction(transaction, index)">
                 <img src="@/assets/BUTTON.svg" alt="삭제" style="width: 1em; height: 1em; vertical-align: middle;">

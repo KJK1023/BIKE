@@ -1,9 +1,15 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+<script>
+import LineGraph from "../components/LineGraph.vue";
+
+export default {
+  components: {
+    LineGraph,
+  },
+};
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <line-graph />
   </main>
 </template>

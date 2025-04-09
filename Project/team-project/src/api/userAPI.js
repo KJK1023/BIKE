@@ -48,7 +48,7 @@ export const remove = async (url, params) => {
   }
 };
 
-// 현재 유저 id "aaa" 고정 (테스트용)
+// 현재 유저 id "aaa" 고정
 export const getCurrentUser = async () => {
   try {
     const data = await get("/api/user", { id: "aaa" });

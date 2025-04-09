@@ -31,7 +31,7 @@
       "id": "aaa",
       "type": "income",
       "date": "2024-05-01",
-      "category": "ietc",
+      "category": "etc",
       "amount": 9000,
       "memo": "친구한테 돈을 빌렸다"
     },
@@ -55,7 +55,7 @@
       "id": "aaa",
       "type": "income",
       "date": "2024-06-13",
-      "category": "ietc",
+      "category": "etc",
       "amount": 3000,
       "memo": "길에서 주웠다"
     },
@@ -79,7 +79,7 @@
       "id": "aaa",
       "type": "expense",
       "date": "2024-05-05",
-      "category": "eetc",
+      "category": "etc",
       "amount": 9000,
       "memo": "친구의 돈을 갚았다"
     },

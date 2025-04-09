@@ -12,7 +12,9 @@
     </div>
 
     <div class="navbar-right">
-      <i class="fas fa-solid fa-gear"></i>
+      <RouterLink to="/profile"
+        ><i class="fas fa-solid fa-gear"></i
+      ></RouterLink>
       <img src="@/assets/profile.png" alt="프로필" class="profile" />
       <!-- 나중에 server에서 가져오기 -->
       <span class="username">김민수</span>

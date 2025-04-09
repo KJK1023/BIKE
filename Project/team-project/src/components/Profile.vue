@@ -65,6 +65,12 @@ export default {
 <style scoped>
 .profile-settings {
   padding: 20px;
+  width: 850px;
+  height: 690px;
+  margin: 0 auto;
+  background-color: #ffffff; /* 흰 배경 */
+  border-radius: 10px; /* 모서리 둥글게 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 살짝 그림자 */
 }
 
 h5 {

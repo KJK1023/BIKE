@@ -122,6 +122,38 @@
       "category": "food",
       "amount": 22000,
       "memo": "치킨먹었다"
+    },
+    {
+      "id": "aaa",
+      "type": "expense",
+      "date": "2024-06-15",
+      "category": "food",
+      "amount": 300000,
+      "memo": "식비"
+    },
+    {
+      "id": "aaa",
+      "type": "expense",
+      "date": "2024-06-15",
+      "category": "transportation",
+      "amount": 120000,
+      "memo": "교통비"
+    },
+    {
+      "id": "aaa",
+      "type": "expense",
+      "date": "2024-06-15",
+      "category": "team_dinner",
+      "amount": 180000,
+      "memo": "회식"
+    },
+    {
+      "id": "aaa",
+      "type": "expense",
+      "date": "2024-06-15",
+      "category": "culture",
+      "amount": 100000,
+      "memo": "문화생활"
     }
   ]
 }

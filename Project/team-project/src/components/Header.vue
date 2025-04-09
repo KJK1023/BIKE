@@ -11,13 +11,13 @@ import { RouterLink } from 'vue-router';
         <RouterLink class="nav-item" to="/transactions"
           >전체 거래 내역</RouterLink
         >
-        <RouterLink class="nav-item" to="/calander">캘린더</RouterLink>
+        <RouterLink class="nav-item" to="/calendar">캘린더</RouterLink>
       </nav>
     </div>
 
     <div class="navbar-right">
       <RouterLink to="/profile"
-        ><i class="fas fa-solid fa-gear"></i
+        ><i class="fas fa-solid fa-gear gear-icon"></i
       ></RouterLink>
       <img src="@/assets/profile.png" alt="프로필" class="profile" />
       <!-- 나중에 server에서 가져오기 -->
@@ -41,6 +41,14 @@ import { RouterLink } from 'vue-router';
   box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
     0px 1px 3px 0px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+}
+
+.gear-icon {
+  color: #4b5563;
+}
+
+.gear-icon:hover {
+  color: #6b7280;
 }
 
 .navbar-left {

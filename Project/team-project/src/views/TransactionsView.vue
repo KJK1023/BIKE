@@ -22,47 +22,44 @@ export default {
       currentPage: 1,
       itemsPerPage: 10,
       showInputModal: false,
-      editingTransaction: null, // 수정할 트랜잭션 정보 저장
+      editingTransaction: null,
       userData: {
-        id: 'user123',
-        name: '홍길동',
-        email: 'user@example.com',
-        income: [
+        currentUser: {
+          id: 'aaa', // 로그인된 사용자 ID
+          name: '홍길동'
+        }
+      },
+      data: {
+        user: [
           {
-            date: '2024-02-15',
-            category: '급여',
-            amount: 3200000,
-            memo: '2월 급여'
-          }
+            id: 'aaa',
+            pw: 'bbb',
+            name: 'human1',
+            email: 'human1@gmail.com'
+          },
+          // 다른 사용자들...
         ],
-        expense: [
+        transaction: [
           {
-            date: '2024-02-14',
-            category: '식비',
-            amount: 12000,
-            memo: '점심식사'
+            id: 'aaa',
+            type: 'income',
+            date: '2024-06-13',
+            category: '형은빠져있어',
+            amount: 3000,
+            memo: '길에서 주웠다'
           },
-          {
-            date: '2024-02-13',
-            category: '쇼핑',
-            amount: 89000,
-            memo: '겨울 옷'
-          },
-          {
-            date: '2024-02-13',
-            category: '교통비',
-            amount: 1500,
-            memo: '출근'
-          },
-          {
-            date: '2024-02-12',
-            category: '문화생활',
-            amount: 15000,
-            memo: '주말 영화'
-          }
+          // 다른 트랜잭션들...
         ]
       }
     };
+  },
+  
+  computed: {
+    currentUserTransactions() {
+      return this.data.transaction.filter(
+        transaction => transaction.id === this.userData.currentUser.id
+      );
+    }
   },
   
   methods: {
@@ -76,7 +73,7 @@ export default {
     
     handleItemsPerPageChange(items) {
       this.itemsPerPage = items;
-      this.currentPage = 1; // 페이지 크기가 변경되면 첫 페이지로 이동
+      this.currentPage = 1;
     },
     
     openInputModal() {
@@ -89,52 +86,59 @@ export default {
     },
     
     handleFormSubmit(formData) {
-      // 새 거래 추가 로직
       if (!this.editingTransaction) {
-        if (formData.type === 'income') {
-          this.userData.income.push({
-            date: formData.date,
-            category: formData.category,
-            amount: Number(formData.amount),
-            memo: formData.content
-          });
-        } else {
-          this.userData.expense.push({
-            date: formData.date,
-            category: formData.category,
-            amount: Number(formData.amount),
-            memo: formData.content
-          });
-        }
-      } 
-      // 기존 거래 수정 로직
-      else {
-        const { type, index } = this.editingTransaction;
-        const transactionList = type === 'income' ? this.userData.income : this.userData.expense;
-        
-        transactionList[index] = {
+        // 새 트랜잭션 추가
+        const newTransaction = {
+          id: this.userData.currentUser.id,
+          type: formData.type,
           date: formData.date,
           category: formData.category,
           amount: Number(formData.amount),
           memo: formData.content
         };
+        
+        this.data.transaction.push(newTransaction);
+      } else {
+        // 기존 트랜잭션 수정
+        const index = this.data.transaction.findIndex(
+          t => 
+            t.id === this.userData.currentUser.id &&
+            t.date === this.editingTransaction.transaction.date &&
+            t.category === this.editingTransaction.transaction.category &&
+            t.amount === this.editingTransaction.transaction.amount
+        );
+        
+        if (index !== -1) {
+          this.data.transaction[index] = {
+            id: this.userData.currentUser.id,
+            type: formData.type,
+            date: formData.date,
+            category: formData.category,
+            amount: Number(formData.amount),
+            memo: formData.content
+          };
+        }
       }
       
       this.closeInputModal();
     },
 
     handleTransactionEdit(editData) {
-      // 수정할 트랜잭션 정보 설정
       this.editingTransaction = editData;
       this.showInputModal = true;
     },
 
     handleTransactionDelete(deleteData) {
-      // 실제 삭제 로직 구현
-      if (deleteData.type === 'income') {
-        this.userData.income.splice(deleteData.index, 1);
-      } else {
-        this.userData.expense.splice(deleteData.index, 1);
+      const index = this.data.transaction.findIndex(
+        t => 
+          t.id === this.userData.currentUser.id &&
+          t.date === deleteData.transaction.date &&
+          t.category === deleteData.transaction.category &&
+          t.amount === deleteData.transaction.amount
+      );
+      
+      if (index !== -1) {
+        this.data.transaction.splice(index, 1);
       }
     }
   }
@@ -145,7 +149,10 @@ export default {
   <div class="container">
     <div class="transaction-page">
       <div class="header-section">
-        <filter-bar class="filter-container" />
+        <filter-bar 
+          class="filter-container" 
+          @filters-applied="applyFilters"
+        />
         <div class="button-wrapper">
           <transaction-button @click="openInputModal" />
         </div>
@@ -153,7 +160,7 @@ export default {
       
       <div class="list-container">
         <transaction-list 
-          :userData="userData"
+          :transactions="currentUserTransactions"
           :currentPage="currentPage"
           :itemsPerPage="itemsPerPage"
           @update:totalItems="updateTotalItems"
@@ -172,11 +179,10 @@ export default {
         />
       </div>
       
-      <!-- 거래 입력/수정 모달 -->
       <input-form 
         :visible="showInputModal" 
         :initialData="editingTransaction ? {
-          type: editingTransaction.type,
+          type: editingTransaction.transaction.type,
           date: editingTransaction.transaction.date,
           category: editingTransaction.transaction.category,
           amount: editingTransaction.transaction.amount,
@@ -190,7 +196,7 @@ export default {
 </template>
 
 <style scoped>
-/* 기존 스타일 그대로 유지 */
+/* 기존 스타일 유지 */
 .container {
   display: flex;
   justify-content: center;
@@ -231,12 +237,11 @@ export default {
   overflow-x: auto;
 }
 .pagination-container {
-  margin-top: -5px; /* 상단 간격 줄이기 */
+  margin-top: -5px;
   margin-left: 8px;
   display: flex;
 }
 
-/* 기존 deep 선택자 스타일 그대로 유지 */
 :deep(.transaction-list) {
   width: 100%;
 }
@@ -246,6 +251,4 @@ export default {
   overflow-x: visible;
   border: none;
 }
-
-/* 나머지 스타일은 동일하게 유지 */
 </style>

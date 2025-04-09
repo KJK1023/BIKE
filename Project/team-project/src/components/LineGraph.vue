@@ -12,6 +12,7 @@ import {
 import { Line } from "vue-chartjs";
 import { onMounted, computed } from "vue";
 import { useTransactionStore } from "../stores/transaction-store";
+import { sixMonthLabels } from "@/utils/chart-utils";
 
 ChartJS.register(
   CategoryScale,
@@ -66,9 +67,11 @@ const totalExpense = computed(() =>
   )
 );
 
+const monthLabels = sixMonthLabels();
+
 // 가져온 데이터에 맞게 값 넣기
 const data = {
-  labels: ["1월", "2월", "3월", "4월", "5월", "6월"],
+  labels: monthLabels,
   datasets: [
     {
       label: "수입",

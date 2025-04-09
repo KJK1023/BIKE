@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,7 +10,9 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "vue-chartjs";
-import * as chartConfig from "./line-chart-config";
+import { ref, onMounted, computed } from "vue";
+import { useTransactionStore } from "../stores/transaction-store";
+import { sixMonthLabels, totalDataPerMonth } from "@/utils/chart-utils";
 
 ChartJS.register(
   CategoryScale,
@@ -22,14 +24,70 @@ ChartJS.register(
   Legend
 );
 
-export default {
-  name: "App",
-  components: {
-    Line,
-  },
-  data() {
-    return chartConfig;
-  },
+const transactionStore = useTransactionStore();
+const transactions = computed(() => transactionStore.transactionInfo);
+
+const monthLabels = ref([]);
+const thisMonthIncome = ref(0);
+const thisMonthExpense = ref(0);
+const sixMonthIncome = ref([]);
+const sixMonthExpense = ref([]);
+
+onMounted(async () => {
+  await transactionStore.fetchTransaction();
+
+  const now = new Date();
+  const thisYear = now.getFullYear();
+  const thisMonth = String(now.getMonth() + 1);
+
+  const thisMonthData = totalDataPerMonth(transactions, thisYear, thisMonth);
+  thisMonthIncome.value = thisMonthData.totalIncome.value;
+  thisMonthExpense.value = thisMonthData.totalExpense.value;
+
+  monthLabels.value = sixMonthLabels();
+
+  sixMonthIncome.value = monthLabels.value.map(
+    (month) =>
+      totalDataPerMonth(transactions, thisYear, month).totalIncome.value
+  );
+
+  sixMonthExpense.value = monthLabels.value.map(
+    (month) =>
+      totalDataPerMonth(transactions, thisYear, month).totalExpense.value
+  );
+
+  // // 차트 데이터 갱신 예시
+  // data.labels = transactions.value.map((t) => t.date);
+  // data.datasets[0].data = transactions.value.map((t) =>
+  //   t.type === "income" ? t.amount : 0
+  // );
+  // data.datasets[1].data = transactions.value.map((t) =>
+  //   t.type === "expense" ? t.amount : 0
+  // );
+});
+
+// 가져온 데이터에 맞게 값 넣기
+const data = computed(() => ({
+  labels: monthLabels?.value,
+  datasets: [
+    {
+      label: "수익",
+      borderColor: "#4f48dc",
+      backgroundColor: "#ffffff",
+      data: sixMonthIncome?.value,
+    },
+    {
+      label: "지출",
+      borderColor: "#DC2626",
+      backgroundColor: "#ffffff",
+      data: sixMonthExpense?.value,
+    },
+  ],
+}));
+
+const options = {
+  responsive: true,
+  maintainAspectRatio: false,
 };
 </script>
 
@@ -38,11 +96,15 @@ export default {
     <div class="inner-box">
       <div class="income-box">
         <p id="this-month-text">이번 달 수익</p>
-        <p id="income-amount">₩3,250,000</p>
+        <p id="income-amount">
+          ₩{{ thisMonthIncome ? thisMonthIncome.toLocaleString() : 0 }}
+        </p>
       </div>
       <div class="expense-box">
         <p id="this-month-text">이번 달 지출</p>
-        <p id="expense-amount">₩2,180,000</p>
+        <p id="expense-amount">
+          ₩{{ thisMonthExpense ? thisMonthExpense.toLocaleString() : 0 }}
+        </p>
       </div>
     </div>
     <div class="chart-wrapper">

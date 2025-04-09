@@ -29,8 +29,16 @@
   "transaction": [
     {
       "id": "aaa",
+      "type": "expense",
+      "date": "2025-03-10",
+      "category": "food",
+      "amount": 8000,
+      "memo": "짜장면 한그릇"
+    },
+    {
+      "id": "aaa",
       "type": "income",
-      "date": "2024-05-01",
+      "date": "2025-05-01",
       "category": "etc",
       "amount": 9000,
       "memo": "친구한테 돈을 빌렸다"
@@ -38,7 +46,7 @@
     {
       "id": "aaa",
       "type": "income",
-      "date": "2024-06-09",
+      "date": "2025-06-09",
       "category": "allowance",
       "amount": 10000,
       "memo": "아싸 용돈"
@@ -46,7 +54,7 @@
     {
       "id": "aaa",
       "type": "income",
-      "date": "2024-06-01",
+      "date": "2025-06-01",
       "category": "salary",
       "amount": 120000,
       "memo": "아싸 월급"
@@ -54,7 +62,7 @@
     {
       "id": "aaa",
       "type": "income",
-      "date": "2024-06-13",
+      "date": "2025-06-13",
       "category": "etc",
       "amount": 3000,
       "memo": "길에서 주웠다"
@@ -62,7 +70,7 @@
     {
       "id": "aaa",
       "type": "income",
-      "date": "2024-05-01",
+      "date": "2025-05-01",
       "category": "salary",
       "amount": 100000,
       "memo": "아싸 월급"
@@ -70,7 +78,7 @@
     {
       "id": "aaa",
       "type": "income",
-      "date": "2024-04-01",
+      "date": "2025-04-01",
       "category": "salary",
       "amount": 80000,
       "memo": "아싸 월급"
@@ -78,7 +86,7 @@
     {
       "id": "aaa",
       "type": "expense",
-      "date": "2024-05-05",
+      "date": "2025-05-05",
       "category": "etc",
       "amount": 9000,
       "memo": "친구의 돈을 갚았다"
@@ -86,7 +94,7 @@
     {
       "id": "aaa",
       "type": "expense",
-      "date": "2024-06-09",
+      "date": "2025-06-09",
       "category": "shopping",
       "amount": 20000,
       "memo": "옷 샀다"
@@ -94,7 +102,7 @@
     {
       "id": "aaa",
       "type": "expense",
-      "date": "2024-06-10",
+      "date": "2025-06-10",
       "category": "food",
       "amount": 12000,
       "memo": "혼밥했다"
@@ -102,7 +110,7 @@
     {
       "id": "aaa",
       "type": "expense",
-      "date": "2024-05-25",
+      "date": "2025-05-25",
       "category": "etc",
       "amount": 3000,
       "memo": "길에서 돈을 잃어버렸다"
@@ -110,7 +118,7 @@
     {
       "id": "aaa",
       "type": "expense",
-      "date": "2024-04-29",
+      "date": "2025-04-29",
       "category": "shopping",
       "amount": 50000,
       "memo": "사고싶은 옷을 샀다"
@@ -118,7 +126,7 @@
     {
       "id": "aaa",
       "type": "expense",
-      "date": "2024-06-08",
+      "date": "2025-06-08",
       "category": "food",
       "amount": 22000,
       "memo": "치킨먹었다"
@@ -126,7 +134,7 @@
     {
       "id": "aaa",
       "type": "expense",
-      "date": "2024-06-15",
+      "date": "2025-06-15",
       "category": "food",
       "amount": 300000,
       "memo": "식비"
@@ -134,7 +142,7 @@
     {
       "id": "aaa",
       "type": "expense",
-      "date": "2024-06-15",
+      "date": "2025-06-15",
       "category": "transportation",
       "amount": 120000,
       "memo": "교통비"
@@ -142,7 +150,7 @@
     {
       "id": "aaa",
       "type": "expense",
-      "date": "2024-06-15",
+      "date": "2025-06-15",
       "category": "team_dinner",
       "amount": 180000,
       "memo": "회식"
@@ -150,7 +158,7 @@
     {
       "id": "aaa",
       "type": "expense",
-      "date": "2024-06-15",
+      "date": "2025-06-15",
       "category": "culture",
       "amount": 100000,
       "memo": "문화생활"

@@ -11,7 +11,9 @@
         <div class="modal-content">
           <!-- 모달 헤더 -->
           <div class="modal-header">
-            <h5 class="modal-title">새 거래 등록</h5>
+            <h5 class="modal-title">
+              {{ isEditing ? '거래 수정' : '새 거래 등록' }}
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -107,7 +109,7 @@
                   class="btn btn-custom-primary"
                   @click="submitForm"
                 >
-                  등록
+                  {{ isEditing ? '수정' : '등록' }}
                 </button>
               </div>
             </form>
@@ -127,7 +129,37 @@ export default {
       type: Boolean,
       default: false,
     },
+    initialData: {
+      type: Object,
+      default: null,
+    },
   },
+  computed: {
+    isEditing() {
+      return this.initialData !== null;
+    },
+  },
+  watch: {
+    initialData: {
+      immediate: true,
+      handler(newVal) {
+        if (newVal) {
+          // 수정 모드일 때 초기 데이터로 폼 채우기
+          this.form = { ...newVal };
+        } else {
+          // 새 거래 등록 모드일 때 폼 초기화
+          this.form = {
+            type: 'income',
+            date: '',
+            category: '',
+            amount: 0,
+            content: '',
+          };
+        }
+      },
+    },
+  },
+
   data() {
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -154,6 +186,24 @@ export default {
       }
       console.log('Form submit:', this.form);
       this.closeModal();
+    },
+    showToast(message) {
+      const toast = document.createElement('div');
+      toast.textContent = message;
+      toast.style.position = 'fixed';
+      toast.style.bottom = '20px';
+      toast.style.left = '50%';
+      toast.style.transform = 'translateX(-50%)';
+      toast.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+      toast.style.color = '#fff';
+      toast.style.padding = '10px 20px';
+      toast.style.borderRadius = '8px';
+      toast.style.zIndex = 9999;
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        document.body.removeChild(toast);
+      }, 2000);
     },
     showToast(message) {
       const toast = document.createElement('div');

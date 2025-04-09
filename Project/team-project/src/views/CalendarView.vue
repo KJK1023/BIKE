@@ -1,13 +1,11 @@
-<script>
+<script setup>
 import Calendar from "../components/Calendar.vue";
-
-export default {
-  components: {
-    Calendar,
-  },
-};
+import DailyTransactionCard from "../components/DailyTransactionCard.vue";
 </script>
 
 <template>
-  <calendar />
+  <div style="display: flex; gap: 20px">
+    <Calendar />
+    <DailyTransactionCard />
+  </div>
 </template>

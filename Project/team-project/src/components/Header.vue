@@ -1,3 +1,7 @@
+<script>
+import { RouterLink } from 'vue-router';
+</script>
+
 <template>
   <nav class="navbar">
     <div class="navbar-left">
@@ -12,7 +16,9 @@
     </div>
 
     <div class="navbar-right">
-      <i class="fas fa-solid fa-gear"></i>
+      <RouterLink to="/profile"
+        ><i class="fas fa-solid fa-gear gear-icon"></i
+      ></RouterLink>
       <img src="@/assets/profile.png" alt="프로필" class="profile" />
       <!-- 나중에 server에서 가져오기 -->
       <span class="username">김민수</span>
@@ -35,6 +41,14 @@
   box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
     0px 1px 3px 0px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+}
+
+.gear-icon {
+  color: #4b5563;
+}
+
+.gear-icon:hover {
+  color: #6b7280;
 }
 
 .navbar-left {

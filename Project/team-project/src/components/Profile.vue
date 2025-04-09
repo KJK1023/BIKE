@@ -161,7 +161,7 @@ h3 {
 
 .save-changes-button {
   padding: 12px 25px;
-  background-color: #007bff;
+  background-color: #4f46e5;
   color: white;
   border: none;
   border-radius: 5px;

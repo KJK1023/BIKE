@@ -1,16 +1,15 @@
-<script>
+<script setup>
 import LineGraph from "../components/LineGraph.vue";
+import CircleGraph from "../components/CircleGraph.vue";
 import WeeklyTransaction from "../components/WeeklyTransaction.vue";
-
-export default {
-  components: {
-    LineGraph,
-    WeeklyTransaction,
-  },
-};
 </script>
 
 <template>
-  <line-graph />
-  <weekly-transaction />
+  <div style="display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex">
+      <LineGraph />
+      <CircleGraph />
+    </div>
+    <WeeklyTransaction />
+  </div>
 </template>

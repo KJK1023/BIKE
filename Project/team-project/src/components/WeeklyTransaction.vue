@@ -2,9 +2,7 @@
   <div class="weekly-box">
     <div class="title-wrapper">
       <h1 id="title-text">주간 수입/지출 현황</h1>
-      <div
-        style="display: flex; cursor: pointer; gap: 5px; align-items: center"
-      >
+      <div class="view-all-wrapper">
         <a id="view-all" href="/transactions">전체 보기</a>
         <i id="chevron-right" class="fa-solid fa-chevron-right"></i>
       </div>
@@ -37,7 +35,7 @@ const weekData = [
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  width: 1185px;
+  width: 1140px;
   gap: 10px;
   border-radius: 8px;
   padding: 20px;
@@ -51,6 +49,12 @@ const weekData = [
 }
 #title-text {
   font-size: 18px;
+}
+.view-all-wrapper {
+  display: flex;
+  cursor: pointer;
+  gap: 5px;
+  align-items: center;
 }
 #view-all {
   color: #4f46e5;

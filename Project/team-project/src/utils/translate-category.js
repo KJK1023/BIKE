@@ -4,10 +4,10 @@ export const translateCategory = (type) => {
     allowance: "용돈",
     food: "식비",
     transportation: "교통비",
-    회식: "team_dinner",
-    쇼핑: "shopping",
-    문화생활: "culture",
-    기타: "etc",
+    team_dinner: "회식",
+    shopping: "쇼핑",
+    culture: "문화생활",
+    etc: "기타",
   };
 
   return categoryMap[type] || "기타";

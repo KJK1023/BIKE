@@ -295,7 +295,6 @@
   .transaction-filter {
     background: #fff;
     border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     margin-bottom: 1rem;
   }
   

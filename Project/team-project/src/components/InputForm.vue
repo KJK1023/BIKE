@@ -11,7 +11,7 @@
         <div class="modal-content">
           <!-- 모달 헤더 -->
           <div class="modal-header">
-            <h5 class="modal-title">새 거래 등록</h5>
+            <h5 class="modal-title">{{ isEditing ? '거래 수정' : '새 거래 등록' }}</h5>
             <button
               type="button"
               class="btn-close"
@@ -104,7 +104,7 @@
                   취소
                 </button>
                 <button type="submit" class="btn btn-custom-primary">
-                  등록
+                  {{ isEditing ? '수정' : '등록' }}
                 </button>
               </div>
             </form>
@@ -124,6 +124,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    initialData: {
+      type: Object,
+      default: null
+    }
   },
   data() {
     return {
@@ -136,25 +140,47 @@ export default {
       },
     };
   },
+  computed: {
+    isEditing() {
+      return this.initialData !== null;
+    }
+  },
+  watch: {
+    initialData: {
+      immediate: true,
+      handler(newVal) {
+        if (newVal) {
+          // 수정 모드일 때 초기 데이터로 폼 채우기
+          this.form = { ...newVal };
+        } else {
+          // 새 거래 등록 모드일 때 폼 초기화
+          this.form = {
+            type: 'income',
+            date: '',
+            category: '',
+            amount: 0,
+            content: '',
+          };
+        }
+      }
+    }
+  },
   methods: {
     closeModal() {
       this.$emit('close');
     },
     submitForm() {
-      console.log('Form submit:', this.form);
-      this.closeModal();
+      this.$emit('submit', this.form);
     },
   },
 };
 </script>
 
 <style scoped>
-/* 원하는 버튼 색상으로 커스텀 */
-/* 모달 배경 스타일 */
+/* 기존 스타일 그대로 유지 */
 .modal-backdrop.show {
   background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정색 */
 }
-/* 모달 내용 스타일 (흰색 배경) */
 .modal-content {
   background-color: #fff;
   width: 448px;
@@ -164,7 +190,7 @@ export default {
   padding-bottom: 1rem;
 }
 .btn-custom-primary {
-  background-color: #0d6efd; /* 기본 Bootstrap primary 색상: 필요에 따라 변경 */
+  background-color: #0d6efd;
   border-color: #0d6efd;
   color: #fff;
 }
@@ -175,7 +201,7 @@ export default {
 }
 
 .btn-custom-secondary {
-  background-color: #6c757d; /* 기본 Bootstrap secondary 색상: 필요에 따라 변경 */
+  background-color: #6c757d;
   border-color: #6c757d;
   color: #fff;
 }

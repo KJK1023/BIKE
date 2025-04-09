@@ -4,7 +4,7 @@
     <ul>
       <li v-for="(day, index) in transactionData">
         <div class="text-wrapper">
-          <p id="semititle-text">{{ day.category }}</p>
+          <p id="semititle-text">{{ translateCategory(day.category) }}</p>
           <p id="date-text">{{ day.date }}</p>
         </div>
         <p v-if="day.type === 'income'" id="income-amount">
@@ -19,17 +19,18 @@
 </template>
 
 <script setup>
+import { translateCategory } from "../utils/translate-category";
 const transactionData = [
-  { category: "ietc", amount: 10000000, type: "income", date: "2024-05-01" },
-  { category: "ietc", amount: 4000, type: "income", date: "2024-05-01" },
-  { category: "ietc", amount: 9000, type: "expense", date: "2024-05-01" },
+  { category: "salary", amount: 10000000, type: "income", date: "2024-05-01" },
+  { category: "etc", amount: 4000, type: "income", date: "2024-05-01" },
+  { category: "food", amount: 9000, type: "expense", date: "2024-05-01" },
 ];
 </script>
 
 <style scoped>
 .card-box {
   width: 384px;
-  height: 270px;
+  height: fit-content;
   background-color: #fff;
   padding: 26px;
   border-radius: 8px;

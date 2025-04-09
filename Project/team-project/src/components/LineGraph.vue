@@ -26,21 +26,6 @@ ChartJS.register(
 const transactionStore = useTransactionStore();
 const transactions = computed(() => transactionStore.transactionInfo);
 
-// 이번 달 수익 합
-const totalIncome = computed(() =>
-  transactions.value.reduce(
-    (sum, t) => sum + (t.type === "income" ? t.amount : 0),
-    0
-  )
-);
-// 이번 달 지출 합
-const totalExpense = computed(() =>
-  transactions.value.reduce(
-    (sum, t) => sum + (t.type === "expense" ? t.amount : 0),
-    0
-  )
-);
-
 onMounted(async () => {
   await transactionStore.fetchTransaction();
 
@@ -54,6 +39,34 @@ onMounted(async () => {
   );
 });
 
+const now = new Date();
+const thisYear = now.getFullYear();
+const thisMonth = String(now.getMonth() + 1);
+
+// 이번 달 데이터만 필터링
+const thisMonthData = computed(() => {
+  return transactions.value.filter((item) => {
+    const [year, month] = item.date.split("-");
+    return year === String(thisYear) && month === thisMonth.padStart(2, "0");
+  });
+});
+
+// 이번 달 수익 합
+const totalIncome = computed(() =>
+  thisMonthData.value?.reduce(
+    (sum, t) => sum + (t.type === "income" ? t.amount : 0),
+    0
+  )
+);
+// 이번 달 지출 합
+const totalExpense = computed(() =>
+  thisMonthData.value?.reduce(
+    (sum, t) => sum + (t.type === "expense" ? t.amount : 0),
+    0
+  )
+);
+
+// 가져온 데이터에 맞게 값 넣기
 const data = {
   labels: ["1월", "2월", "3월", "4월", "5월", "6월"],
   datasets: [
@@ -83,11 +96,15 @@ const options = {
     <div class="inner-box">
       <div class="income-box">
         <p id="this-month-text">이번 달 수익</p>
-        <p id="income-amount">₩{{ totalIncome.toLocaleString() }}</p>
+        <p id="income-amount">
+          ₩{{ totalIncome ? totalIncome.toLocaleString() : 0 }}
+        </p>
       </div>
       <div class="expense-box">
         <p id="this-month-text">이번 달 지출</p>
-        <p id="expense-amount">₩{{ totalExpense.toLocaleString() }}</p>
+        <p id="expense-amount">
+          ₩{{ totalExpense ? totalExpense.toLocaleString() : 0 }}
+        </p>
       </div>
     </div>
     <div class="chart-wrapper">

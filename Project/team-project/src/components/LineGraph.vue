@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,7 +10,8 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "vue-chartjs";
-import * as chartConfig from "./line-chart-config";
+import { onMounted, computed } from "vue";
+import { useTransactionStore } from "../stores/transaction-store";
 
 ChartJS.register(
   CategoryScale,
@@ -22,14 +23,58 @@ ChartJS.register(
   Legend
 );
 
-export default {
-  name: "App",
-  components: {
-    Line,
-  },
-  data() {
-    return chartConfig;
-  },
+const transactionStore = useTransactionStore();
+const transactions = computed(() => transactionStore.transactionInfo);
+
+// 이번 달 수익 합
+const totalIncome = computed(() =>
+  transactions.value.reduce(
+    (sum, t) => sum + (t.type === "income" ? t.amount : 0),
+    0
+  )
+);
+// 이번 달 지출 합
+const totalExpense = computed(() =>
+  transactions.value.reduce(
+    (sum, t) => sum + (t.type === "expense" ? t.amount : 0),
+    0
+  )
+);
+
+onMounted(async () => {
+  await transactionStore.fetchTransaction();
+
+  // 차트 데이터 갱신 예시
+  config.data.labels = transactions.value.map((t) => t.date);
+  config.data.datasets[0].data = transactions.value.map((t) =>
+    t.type === "income" ? t.amount : 0
+  );
+  config.data.datasets[1].data = transactions.value.map((t) =>
+    t.type === "expense" ? t.amount : 0
+  );
+});
+
+const data = {
+  labels: ["1월", "2월", "3월", "4월", "5월", "6월"],
+  datasets: [
+    {
+      label: "수입",
+      borderColor: "#4f48dc",
+      backgroundColor: "#ffffff",
+      data: [3100000, 3200000, 3150000, 3300000, 3150000, 3450000],
+    },
+    {
+      label: "지출",
+      borderColor: "#DC2626",
+      backgroundColor: "#ffffff",
+      data: [2800000, 2200000, 2600000, 2450000, 2300000, 2500000],
+    },
+  ],
+};
+
+const options = {
+  responsive: true,
+  maintainAspectRatio: false,
 };
 </script>
 
@@ -38,11 +83,11 @@ export default {
     <div class="inner-box">
       <div class="income-box">
         <p id="this-month-text">이번 달 수익</p>
-        <p id="income-amount">₩3,250,000</p>
+        <p id="income-amount">₩{{ totalIncome.toLocaleString() }}</p>
       </div>
       <div class="expense-box">
         <p id="this-month-text">이번 달 지출</p>
-        <p id="expense-amount">₩2,180,000</p>
+        <p id="expense-amount">₩{{ totalExpense.toLocaleString() }}</p>
       </div>
     </div>
     <div class="chart-wrapper">

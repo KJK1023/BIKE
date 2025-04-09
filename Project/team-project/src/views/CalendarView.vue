@@ -1,13 +1,13 @@
 <script>
-import Calander from "../components/Calander.vue";
+import Calendar from "../components/Calendar.vue";
 
 export default {
   components: {
-    Calander,
+    Calendar,
   },
 };
 </script>
 
 <template>
-  <calander />
+  <calendar />
 </template>

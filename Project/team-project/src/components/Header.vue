@@ -7,7 +7,7 @@
         <RouterLink class="nav-item" to="/transactions"
           >전체 거래 내역</RouterLink
         >
-        <RouterLink class="nav-item" to="/calander">캘린더</RouterLink>
+        <RouterLink class="nav-item" to="/calendar">캘린더</RouterLink>
       </nav>
     </div>
 

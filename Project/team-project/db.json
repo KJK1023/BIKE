@@ -29,6 +29,14 @@
   "transaction": [
     {
       "id": "aaa",
+      "type": "expense",
+      "date": "2025-03-10",
+      "category": "food",
+      "amount": 8000,
+      "memo": "짜장면 한그릇"
+    },
+    {
+      "id": "aaa",
       "type": "income",
       "date": "2025-05-01",
       "category": "etc",

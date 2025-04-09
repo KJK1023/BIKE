@@ -1,7 +1,8 @@
 <script setup>
-import LineGraph from "../components/LineGraph.vue";
-import CircleGraph from "../components/CircleGraph.vue";
-import WeeklyTransaction from "../components/WeeklyTransaction.vue";
+import LineGraph from "@/components/LineGraph.vue";
+import CircleGraph from "@/components/CircleGraph.vue";
+import WeeklyTransaction from "@/components/WeeklyTransaction.vue";
+import PiniaTest from "@/components/PiniaTest.vue";
 </script>
 
 <template>
@@ -11,5 +12,8 @@ import WeeklyTransaction from "../components/WeeklyTransaction.vue";
       <CircleGraph />
     </div>
     <WeeklyTransaction />
+  </div>
+  <div>
+    <PiniaTest />
   </div>
 </template>

@@ -98,6 +98,9 @@ export default {
         };
         
         this.data.transaction.push(newTransaction);
+        
+        // 추가 후 필터링 다시 실행
+        this.refreshFilteredData();
       } else {
         // 기존 트랜잭션 수정
         const index = this.data.transaction.findIndex(
@@ -117,6 +120,9 @@ export default {
             amount: Number(formData.amount),
             memo: formData.content
           };
+          
+          // 수정 후 필터링 다시 실행
+          this.refreshFilteredData();
         }
       }
       
@@ -139,6 +145,33 @@ export default {
       
       if (index !== -1) {
         this.data.transaction.splice(index, 1);
+        
+        // 삭제 후 필터링 다시 실행
+        this.refreshFilteredData();
+      }
+    },
+    
+    // 추가된 메서드: 필터링 정보 처리
+    applyFilters(filterData) {
+      console.log('필터 적용됨:', filterData);
+      // 필터 정보를 사용한 추가 로직이 필요하면 여기에 구현
+    },
+    
+    // 추가된 메서드: 필터링된 거래 내역 처리
+    handleFilteredTransactions(filteredData) {
+      console.log('필터링된 거래 내역 수신:', filteredData.length);
+      // TransactionList 컴포넌트로 필터링된 데이터 전달
+      if (this.$refs.transactionList) {
+        this.$refs.transactionList.handleFilterTransactions(filteredData);
+      }
+    },
+    
+    // 추가된 메서드: 데이터 변경 후 필터링 다시 실행
+    refreshFilteredData() {
+      // FilterBar 컴포넌트가 존재하면 필터링 다시 실행
+      if (this.$refs.filterBar && typeof this.$refs.filterBar.filterTransactions === 'function') {
+        console.log('데이터 변경 후 필터링 다시 실행');
+        this.$refs.filterBar.filterTransactions();
       }
     }
   }
@@ -150,8 +183,10 @@ export default {
     <div class="transaction-page">
       <div class="header-section">
         <filter-bar 
+          ref="filterBar"
           class="filter-container" 
           @filters-applied="applyFilters"
+          @filter-transactions="handleFilteredTransactions"
         />
         <div class="button-wrapper">
           <transaction-button @click="openInputModal" />
@@ -160,6 +195,7 @@ export default {
       
       <div class="list-container">
         <transaction-list 
+          ref="transactionList"
           :transactions="currentUserTransactions"
           :currentPage="currentPage"
           :itemsPerPage="itemsPerPage"

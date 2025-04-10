@@ -4,25 +4,29 @@
       "id": "aaa",
       "pw": "bbb",
       "name": "human1",
-      "email": "human1@gmail.com"
+      "email": "human1@gmail.com",
+      "tel": "010-1234-5678"
     },
     {
       "id": "ccc",
       "pw": "ddd",
       "name": "human2",
-      "email": "human2@gmail.com"
+      "email": "human2@gmail.com",
+      "tel": "010-1234-5678"
     },
     {
       "id": "eee",
       "pw": "fff",
       "name": "human3",
-      "email": "human3@gmail.com"
+      "email": "human3@gmail.com",
+      "tel": "010-1234-5678"
     },
     {
       "id": "ggg",
       "pw": "hhh",
       "name": "human4",
-      "email": "human4@gmail.com"
+      "email": "human4@gmail.com",
+      "tel": "010-1234-5678"
     }
   ],
   "transaction": [

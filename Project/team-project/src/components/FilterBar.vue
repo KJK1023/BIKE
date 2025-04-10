@@ -114,8 +114,36 @@ export default {
       showDatePicker: false,
       startDate: this.formatDateForInput(new Date()),
       endDate: this.formatDateForInput(new Date()),
-      transactionStore: useTransactionStore() // Pinia store 직접 사용
+      transactionStore: useTransactionStore(),
+      
+      // 카테고리 매핑 추가
+      categoryMap: {
+        '급여': 'salary',
+        '식비': 'food',
+        '쇼핑': 'shopping',
+        '교통비': 'transportation',
+        '문화생활': 'culture'
+      },
+      reverseCategoryMap: {}
     };
+  },
+
+  created() {
+    // 역방향 카테고리 매핑 생성
+    this.reverseCategoryMap = Object.fromEntries(
+      Object.entries(this.categoryMap).map(([key, value]) => [value, key])
+    );
+
+    // 데이터 로드가 완료된 후 필터링 실행
+    setTimeout(() => {
+      this.filterTransactions();
+    }, 500);
+    
+    document.addEventListener('click', this.handleOutsideClick);
+  },
+
+  beforeUnmount() {
+    document.removeEventListener('click', this.handleOutsideClick);
   },
 
   methods: {
@@ -134,7 +162,6 @@ export default {
     },
 
     setPeriod(period) {
-      console.log('FilterBar: 기간 필터 변경:', period);
       this.selectedPeriod = period;
       const today = new Date();
       if (period === '오늘') {
@@ -170,7 +197,6 @@ export default {
     },
 
     applyCustomDate() {
-      console.log('FilterBar: 사용자 지정 날짜 적용:', this.startDate, this.endDate);
       if (this.startDate && this.endDate) {
         const start = new Date(this.startDate);
         const end = new Date(this.endDate);
@@ -191,7 +217,6 @@ export default {
     },
 
     setType(type) {
-      console.log('FilterBar: 유형 필터 변경:', type);
       this.selectedType = type;
       if (this.$refs.typeDropdownButton) {
         this.$refs.typeDropdownButton.innerText = (
@@ -205,22 +230,18 @@ export default {
     },
 
     setCategory(category) {
-      console.log('FilterBar: 카테고리 필터 변경:', category);
       this.selectedCategory = category;
       this.filterTransactions();
     },
 
     filterTransactions() {
-      // Pinia store에서 직접 데이터 가져오기
       const transactions = this.transactionStore.transactionInfo || [];
-      console.log('FilterBar: 필터링 시작, 전체 데이터:', transactions);
 
       const dateFilter = (transaction) => {
         if (this.selectedPeriod === '전체') return true;
 
-        // JSON 데이터의 "date" 형식이 "YYYY-MM-DD"이므로 그대로 사용 가능
         const transactionDate = new Date(transaction.date);
-        transactionDate.setHours(0, 0, 0, 0); // 시간 정보 제거
+        transactionDate.setHours(0, 0, 0, 0);
 
         if (this.selectedPeriod.includes('~')) {
           const [startStr, endStr] = this.selectedPeriod.split('~').map(d => d.trim());
@@ -229,20 +250,16 @@ export default {
           start.setHours(0, 0, 0, 0);
           end.setHours(23, 59, 59, 999);
 
-          const result = transactionDate >= start && transactionDate <= end;
-          console.log('FilterBar: 날짜 필터 - 거래일:', transactionDate, '시작:', start, '종료:', end, '결과:', result);
-          return result;
+          return transactionDate >= start && transactionDate <= end;
         }
 
         if (this.selectedPeriod === '오늘') {
           const today = new Date();
-          const result = (
+          return (
             transactionDate.getFullYear() === today.getFullYear() &&
             transactionDate.getMonth() === today.getMonth() &&
             transactionDate.getDate() === today.getDate()
           );
-          console.log('FilterBar: 오늘 필터 - 거래일:', transactionDate, '오늘:', today, '결과:', result);
-          return result;
         }
 
         if (this.selectedPeriod === '이번 주') {
@@ -251,45 +268,39 @@ export default {
           firstDayOfWeek.setDate(today.getDate() - today.getDay());
           firstDayOfWeek.setHours(0, 0, 0, 0);
 
-          const result = transactionDate >= firstDayOfWeek && transactionDate <= today;
-          console.log('FilterBar: 이번 주 필터 - 거래일:', transactionDate, '시작:', firstDayOfWeek, '종료:', today, '결과:', result);
-          return result;
+          return transactionDate >= firstDayOfWeek && transactionDate <= today;
         }
 
         if (this.selectedPeriod === '이번 달') {
           const today = new Date();
           const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
 
-          const result = transactionDate >= firstDayOfMonth && transactionDate <= today;
-          console.log('FilterBar: 이번 달 필터 - 거래일:', transactionDate, '시작:', firstDayOfMonth, '종료:', today, '결과:', result);
-          return result;
+          return transactionDate >= firstDayOfMonth && transactionDate <= today;
         }
 
         return true;
       };
 
       const typeFilter = (transaction) => {
-        const result = this.selectedType === '전체' || transaction.type === this.selectedType;
-        console.log('FilterBar: 유형 필터 - 선택:', this.selectedType, '거래 유형:', transaction.type, '결과:', result);
-        return result;
+        return this.selectedType === '전체' || transaction.type === this.selectedType;
       };
 
       const categoryFilter = (transaction) => {
-        const result = this.selectedCategory === '전체' || transaction.category === this.selectedCategory;
-        console.log('FilterBar: 카테고리 필터 - 선택:', this.selectedCategory, '거래 카테고리:', transaction.category, '결과:', result);
-        return result;
+        if (this.selectedCategory === '전체') return true;
+        
+        const englishCategory = this.categoryMap[this.selectedCategory];
+        return transaction.category === englishCategory;
       };
 
       const filteredTransactions = transactions.filter(
         (transaction) => dateFilter(transaction) && typeFilter(transaction) && categoryFilter(transaction)
       );
 
-      console.log('FilterBar: 필터링 완료, 결과:', filteredTransactions);
       this.$emit('filter-transactions', filteredTransactions);
       this.$emit('filters-applied', {
         period: this.selectedPeriod,
         type: this.selectedType === '전체' ? null : this.selectedType,
-        category: this.selectedCategory === '전체' ? null : this.selectedCategory,
+        category: this.selectedCategory === '전체' ? null : this.reverseCategoryMap[this.categoryMap[this.selectedCategory]],
         dateRange: this.selectedPeriod.includes('~')
           ? { start: this.selectedPeriod.split('~')[0].trim(), end: this.selectedPeriod.split('~')[1].trim() }
           : null,
@@ -310,19 +321,6 @@ export default {
         }
       }
     }
-  },
-
-  created() {
-    // 데이터 로드가 완료된 후 필터링 실행
-    setTimeout(() => {
-      this.filterTransactions();
-    }, 500); // 500ms 지연 - 데이터 로딩을 기다리기 위함
-    
-    document.addEventListener('click', this.handleOutsideClick);
-  },
-
-  beforeUnmount() {
-    document.removeEventListener('click', this.handleOutsideClick);
   }
 };
 </script>

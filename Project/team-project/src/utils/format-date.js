@@ -4,3 +4,10 @@ export const formatDate = (date) => {
   const day = String(date.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 };
+
+export const formatToMonthDay = (date) => {
+  const [year, month, day] = date.split("-");
+  const monthNumber = parseInt(month, 10); // 앞의 0 제거
+  const dayNumber = parseInt(day, 10); // 앞의 0 제거
+  return `${monthNumber}/${dayNumber}`;
+};

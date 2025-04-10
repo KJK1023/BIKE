@@ -77,6 +77,22 @@
     {
       "id": "aaa",
       "type": "expense",
+      "date": "2025-04-09",
+      "category": "food",
+      "amount": 5000,
+      "memo": "오늘은 라면"
+    },
+    {
+      "id": "aaa",
+      "type": "expense",
+      "date": "2025-04-10",
+      "category": "food",
+      "amount": 8000,
+      "memo": "제육덮밥"
+    },
+    {
+      "id": "aaa",
+      "type": "expense",
       "date": "2025-05-05",
       "category": "etc",
       "amount": 9000,

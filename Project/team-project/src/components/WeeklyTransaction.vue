@@ -7,27 +7,64 @@
         <i id="chevron-right" class="fa-solid fa-chevron-right"></i>
       </div>
     </div>
-    <div class="daily-list">
-      <div class="daily-box" v-for="(day, index) in weekData" :key="index">
-        <p id="day">{{ day.day }}</p>
-        <p id="date">{{ day.date }}</p>
-        <p id="total-income">+{{ day.income.toLocaleString() }}</p>
-        <p id="total-expense">-{{ day.expense.toLocaleString() }}</p>
+    <div class="daily-list" v-if="filteredData.length > 0">
+      <div class="daily-box" v-for="(data, index) in filteredData" :key="index">
+        <p id="day">{{ data.day }}</p>
+        <p id="date">{{ data.date }}</p>
+        <p id="total-income">+{{ data.income?.toLocaleString() }}</p>
+        <p id="total-expense">-{{ data.expense?.toLocaleString() }}</p>
       </div>
+    </div>
+    <div v-else>
+      <p>데이터 불러오는 중</p>
     </div>
   </div>
 </template>
 
 <script setup>
-const weekData = [
-  { day: "월", date: "4/8", income: 500000, expense: 32000 },
-  { day: "화", date: "4/9", income: 240000, expense: 78000 },
-  { day: "수", date: "4/10", income: 190000, expense: 120000 },
-  { day: "목", date: "4/11", income: 220000, expense: 65000 },
-  { day: "금", date: "4/12", income: 330000, expense: 90000 },
-  { day: "토", date: "4/13", income: 100000, expense: 23000 },
-  { day: "일", date: "4/14", income: 180000, expense: 45000 },
-];
+import { onMounted, computed } from "vue";
+import { useTransactionStore } from "../stores/transaction-store";
+import { getThisWeekDates } from "@/utils/get-this-week-dates";
+import { formatToMonthDay } from "@/utils/format-date";
+
+const transactionStore = useTransactionStore();
+const transactions = computed(() => transactionStore.transactionInfo);
+
+// yyyy-mm-dd 포맷의 이번주 날짜
+const weekDates = getThisWeekDates();
+const dayMap = ["일", "월", "화", "수", "목", "금", "토"];
+
+const filteredData = computed(() => {
+  if (!transactions.value) return [];
+
+  return weekDates.map((date) => {
+    const day = dayMap[new Date(date).getDay()];
+    const formattedDate = formatToMonthDay(date);
+
+    const transaction = transactions.value.filter((item) => item.date === date);
+
+    const totalIncome = transaction.reduce(
+      (sum, t) => sum + (t.type === "income" ? t.amount : 0),
+      0
+    );
+
+    const totalExpense = transaction.reduce(
+      (sum, t) => sum + (t.type === "expense" ? t.amount : 0),
+      0
+    );
+
+    return {
+      day,
+      date: formattedDate,
+      income: transaction ? totalIncome : 0,
+      expense: transaction ? totalExpense : 0,
+    };
+  });
+});
+
+onMounted(async () => {
+  await transactionStore.fetchTransaction();
+});
 </script>
 
 <style>

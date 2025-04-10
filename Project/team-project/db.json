@@ -253,6 +253,38 @@
       "category": "food",
       "amount": 12000,
       "memo": "점심값"
+    },
+    {
+      "id": "aaa",
+      "type": "income",
+      "date": "2025-07-03",
+      "category": "식비",
+      "amount": 123,
+      "memo": ""
+    },
+    {
+      "id": "aaa",
+      "type": "income",
+      "date": "2025-07-17",
+      "category": "식비",
+      "amount": 10000,
+      "memo": "KJK테스트"
+    },
+    {
+      "id": "aaa",
+      "type": "income",
+      "date": "2025-06-26",
+      "category": "etc",
+      "amount": 8000,
+      "memo": "중고거래 수입 수정"
+    },
+    {
+      "id": "aaa",
+      "type": "expense",
+      "date": "2025-06-26",
+      "category": "transportation",
+      "amount": 200000,
+      "memo": "KJK2"
     }
   ]
 }

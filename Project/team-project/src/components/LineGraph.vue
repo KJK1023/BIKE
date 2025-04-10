@@ -55,15 +55,6 @@ onMounted(async () => {
     (month) =>
       totalDataPerMonth(transactions, thisYear, month).totalExpense.value
   );
-
-  // // 차트 데이터 갱신 예시
-  // data.labels = transactions.value.map((t) => t.date);
-  // data.datasets[0].data = transactions.value.map((t) =>
-  //   t.type === "income" ? t.amount : 0
-  // );
-  // data.datasets[1].data = transactions.value.map((t) =>
-  //   t.type === "expense" ? t.amount : 0
-  // );
 });
 
 // 가져온 데이터에 맞게 값 넣기
@@ -116,8 +107,7 @@ const options = {
 <style scoped>
 .line-chart-box {
   background-color: #fff;
-  width: 780px;
-  height: 456px;
+  width: 70%;
   padding: 18px;
   border-radius: 8px;
   box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1),
@@ -126,13 +116,13 @@ const options = {
 .inner-box {
   display: flex;
   gap: 12px;
+  height: 18%;
   margin-bottom: 20px;
 }
 .income-box {
   background-color: #eef2ff;
   border-radius: 8px;
   width: 100%;
-  height: 84px;
   padding: 0 20px 0 20px;
   align-content: center;
 }
@@ -140,7 +130,6 @@ const options = {
   background-color: #fef2f2;
   border-radius: 8px;
   width: 100%;
-  height: 84px;
   padding: 0 20px 0 20px;
   align-content: center;
 }
@@ -164,7 +153,7 @@ const options = {
   margin: 0;
 }
 .chart-wrapper {
-  height: 300px;
+  height: 75%;
   margin: 0;
 }
 </style>

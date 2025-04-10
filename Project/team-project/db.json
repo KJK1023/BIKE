@@ -1,28 +1,28 @@
 {
   "user": [
     {
-      "id": "aaa",
+      "userId": "aaa",
       "pw": "bbb",
       "name": "human1",
       "email": "human1@gmail.com",
       "tel": "010-1234-5678"
     },
     {
-      "id": "ccc",
+      "userId": "ccc",
       "pw": "ddd",
       "name": "human2",
       "email": "human2@gmail.com",
       "tel": "010-1234-5678"
     },
     {
-      "id": "eee",
+      "userId": "eee",
       "pw": "fff",
       "name": "human3",
       "email": "human3@gmail.com",
       "tel": "010-1234-5678"
     },
     {
-      "id": "ggg",
+      "userId": "ggg",
       "pw": "hhh",
       "name": "human4",
       "email": "human4@gmail.com",
@@ -31,7 +31,8 @@
   ],
   "transaction": [
     {
-      "id": "aaa",
+      "id": "1",
+      "userId": "aaa",
       "type": "income",
       "date": "2025-05-01",
       "category": "etc",
@@ -39,7 +40,8 @@
       "memo": "친구한테 돈을 빌렸다"
     },
     {
-      "id": "aaa",
+      "id": "2",
+      "userId": "aaa",
       "type": "income",
       "date": "2025-06-09",
       "category": "allowance",
@@ -47,7 +49,8 @@
       "memo": "아싸 용돈"
     },
     {
-      "id": "aaa",
+      "id": "3",
+      "userId": "aaa",
       "type": "income",
       "date": "2025-06-01",
       "category": "salary",
@@ -55,7 +58,8 @@
       "memo": "아싸 월급"
     },
     {
-      "id": "aaa",
+      "id": "4",
+      "userId": "aaa",
       "type": "income",
       "date": "2025-06-13",
       "category": "etc",
@@ -63,7 +67,8 @@
       "memo": "길에서 주웠다"
     },
     {
-      "id": "aaa",
+      "id": "5",
+      "userId": "aaa",
       "type": "income",
       "date": "2025-05-01",
       "category": "salary",
@@ -71,7 +76,8 @@
       "memo": "아싸 월급"
     },
     {
-      "id": "aaa",
+      "id": "6",
+      "userId": "aaa",
       "type": "income",
       "date": "2025-04-01",
       "category": "salary",
@@ -79,7 +85,8 @@
       "memo": "아싸 월급"
     },
     {
-      "id": "aaa",
+      "id": "7",
+      "userId": "aaa",
       "type": "expense",
       "date": "2025-04-09",
       "category": "food",
@@ -87,7 +94,8 @@
       "memo": "오늘은 라면"
     },
     {
-      "id": "aaa",
+      "id": "8",
+      "userId": "aaa",
       "type": "expense",
       "date": "2025-04-10",
       "category": "food",
@@ -95,7 +103,8 @@
       "memo": "제육덮밥"
     },
     {
-      "id": "aaa",
+      "id": "9",
+      "userId": "aaa",
       "type": "expense",
       "date": "2025-05-05",
       "category": "etc",
@@ -103,7 +112,8 @@
       "memo": "친구의 돈을 갚았다"
     },
     {
-      "id": "aaa",
+      "id": "10",
+      "userId": "aaa",
       "type": "expense",
       "date": "2025-06-09",
       "category": "shopping",
@@ -111,7 +121,8 @@
       "memo": "옷 샀다"
     },
     {
-      "id": "aaa",
+      "id": "11",
+      "userId": "aaa",
       "type": "expense",
       "date": "2025-06-10",
       "category": "food",
@@ -119,7 +130,8 @@
       "memo": "혼밥했다"
     },
     {
-      "id": "aaa",
+      "id": "12",
+      "userId": "aaa",
       "type": "expense",
       "date": "2025-05-25",
       "category": "etc",
@@ -127,7 +139,8 @@
       "memo": "길에서 돈을 잃어버렸다"
     },
     {
-      "id": "aaa",
+      "id": "13",
+      "userId": "aaa",
       "type": "expense",
       "date": "2025-04-29",
       "category": "shopping",
@@ -135,7 +148,8 @@
       "memo": "사고싶은 옷을 샀다"
     },
     {
-      "id": "aaa",
+      "id": "14",
+      "userId": "aaa",
       "type": "expense",
       "date": "2025-06-08",
       "category": "food",
@@ -143,7 +157,8 @@
       "memo": "치킨먹었다"
     },
     {
-      "id": "aaa",
+      "id": "15",
+      "userId": "aaa",
       "type": "expense",
       "date": "2025-06-15",
       "category": "food",
@@ -151,7 +166,8 @@
       "memo": "식비"
     },
     {
-      "id": "aaa",
+      "id": "16",
+      "userId": "aaa",
       "type": "expense",
       "date": "2025-06-15",
       "category": "transportation",
@@ -159,132 +175,13 @@
       "memo": "교통비"
     },
     {
-      "id": "aaa",
+      "id": "17",
+      "userId": "aaa",
       "type": "expense",
       "date": "2025-06-15",
       "category": "team_dinner",
       "amount": 180000,
       "memo": "회식"
-    },
-    {
-      "id": "aaa",
-      "type": "expense",
-      "date": "2025-06-15",
-      "category": "culture",
-      "amount": 100000,
-      "memo": "문화생활"
-    },
-    {
-      "id": "aaa",
-      "type": "income",
-      "date": "2025-06-20",
-      "category": "salary",
-      "amount": 130000,
-      "memo": "보너스 받음"
-    },
-    {
-      "id": "aaa",
-      "type": "expense",
-      "date": "2025-06-21",
-      "category": "food",
-      "amount": 18000,
-      "memo": "라멘 먹음"
-    },
-    {
-      "id": "aaa",
-      "type": "expense",
-      "date": "2025-06-22",
-      "category": "shopping",
-      "amount": 75000,
-      "memo": "가방 샀다"
-    },
-    {
-      "id": "aaa",
-      "type": "expense",
-      "date": "2025-06-22",
-      "category": "transportation",
-      "amount": 5600,
-      "memo": "지하철 탔다"
-    },
-    {
-      "id": "aaa",
-      "type": "income",
-      "date": "2025-06-23",
-      "category": "allowance",
-      "amount": 20000,
-      "memo": "부모님이 주심"
-    },
-    {
-      "id": "aaa",
-      "type": "expense",
-      "date": "2025-06-23",
-      "category": "team_dinner",
-      "amount": 95000,
-      "memo": "팀 회식"
-    },
-    {
-      "id": "aaa",
-      "type": "expense",
-      "date": "2025-06-24",
-      "category": "culture",
-      "amount": 15000,
-      "memo": "영화 관람"
-    },
-    {
-      "id": "aaa",
-      "type": "expense",
-      "date": "2025-06-25",
-      "category": "etc",
-      "amount": 3400,
-      "memo": "문구류 구매"
-    },
-    {
-      "id": "aaa",
-      "type": "income",
-      "date": "2025-06-26",
-      "category": "etc",
-      "amount": 7000,
-      "memo": "중고거래 수입"
-    },
-    {
-      "id": "aaa",
-      "type": "expense",
-      "date": "2025-06-26",
-      "category": "food",
-      "amount": 12000,
-      "memo": "점심값"
-    },
-    {
-      "id": "aaa",
-      "type": "income",
-      "date": "2025-07-03",
-      "category": "식비",
-      "amount": 123,
-      "memo": ""
-    },
-    {
-      "id": "aaa",
-      "type": "income",
-      "date": "2025-07-17",
-      "category": "식비",
-      "amount": 10000,
-      "memo": "KJK테스트"
-    },
-    {
-      "id": "aaa",
-      "type": "income",
-      "date": "2025-06-26",
-      "category": "etc",
-      "amount": 8000,
-      "memo": "중고거래 수입 수정"
-    },
-    {
-      "id": "aaa",
-      "type": "expense",
-      "date": "2025-06-26",
-      "category": "transportation",
-      "amount": 200000,
-      "memo": "KJK2"
     }
   ]
 }

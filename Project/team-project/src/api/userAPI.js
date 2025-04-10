@@ -51,7 +51,7 @@ export const remove = async (url, params) => {
 // 현재 유저 id "aaa" 고정
 export const getCurrentUser = async () => {
   try {
-    const data = await get('/api/user', { id: 'aaa' });
+    const data = await get('/api/user', { userId: 'aaa' });
     return data;
   } catch (e) {
     console.error('[getCurrentUser ERROR]', e);
@@ -62,7 +62,7 @@ export const getCurrentUser = async () => {
 // 유저 ID로 트랜잭션 가져오기
 export const getTransactionsByUserId = async (userId) => {
   try {
-    const data = await get('/api/transaction', { id: userId });
+    const data = await get('/api/transaction', { userId: userId });
     return data;
   } catch (e) {
     console.error('[getTransactionsByUserId ERROR]', e);
@@ -74,7 +74,7 @@ export const getTransactionsByUserId = async (userId) => {
 export const postTransaction = async (transaction) => {
   try {
     const transactionData = {
-      id: 'aaa', // 예시로 고정된 유저 ID, 나중에 동적으로 처리 가능
+      userId: 'aaa',
       type: transaction.type,
       date: transaction.date,
       category: transaction.category,

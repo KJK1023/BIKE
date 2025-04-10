@@ -29,14 +29,15 @@ export const useTransactionStore = defineStore("transaction", () => {
   // Transaction CRUD
   const addTransaction = async (newTransaction) => {
     try {
+      console.log("await 완료 : ", transactionInfo.value.length);
       await userApi.postTransaction(newTransaction);
+
       await fetchTransaction(); // 추가 후 거래목록 다시 불러오기
+      console.log("fetch 완료 : ", transactionInfo.value.length);
     } catch (error) {
       console.error("거래 추가에 실패했습니다.", error);
     }
   };
-
-  const updateTransaction = asynce();
 
   return {
     transactionInfo,

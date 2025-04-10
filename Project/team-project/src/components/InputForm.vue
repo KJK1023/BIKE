@@ -12,7 +12,7 @@
           <!-- 모달 헤더 -->
           <div class="modal-header">
             <h5 class="modal-title">
-              {{ isEditing ? '거래 수정' : '새 거래 등록' }}
+              {{ isEditing ? "거래 수정" : "새 거래 등록" }}
             </h5>
             <button
               type="button"
@@ -112,7 +112,7 @@
                   class="btn btn-custom-primary"
                   @click="submitForm"
                 >
-                  {{ isEditing ? '수정' : '등록' }}
+                  {{ isEditing ? "수정" : "등록" }}
                 </button>
               </div>
             </form>
@@ -125,10 +125,10 @@
 </template>
 
 <script>
-import { postTransaction, getTransactionsByUserId } from '@/api/userAPI'; // userAPI.js에서 함수 가져오기
+import { postTransaction, getTransactionsByUserId } from "@/api/userAPI"; // userAPI.js에서 함수 가져오기
 
 export default {
-  name: 'InputForm',
+  name: "InputForm",
   props: {
     visible: {
       type: Boolean,
@@ -154,11 +154,11 @@ export default {
         } else {
           // 새 거래 등록 모드일 때 폼 초기화
           this.form = {
-            type: 'income',
-            date: '',
-            category: '',
+            type: "income",
+            date: "",
+            category: "",
             amount: 0,
-            content: '',
+            content: "",
           };
         }
       },
@@ -167,29 +167,29 @@ export default {
   data() {
     const today = new Date();
     const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
     const formattedToday = `${yyyy}-${mm}-${dd}`;
 
     return {
       form: {
-        type: 'income',
+        type: "income",
         date: formattedToday, // 오늘 날짜를 기본값으로
-        category: '',
-        amount: '',
-        content: '',
+        category: "",
+        amount: "",
+        content: "",
       },
     };
   },
 
   methods: {
     closeModal() {
-      this.$emit('close');
+      this.$emit("close");
     },
     // InputForm.vue에서 submitForm 함수 수정
     async submitForm() {
       if (this.form.amount <= 0) {
-        this.showToast('금액을 0보다 큰 값으로 입력하세요.');
+        this.showToast("금액을 0보다 큰 값으로 입력하세요.");
         return;
       }
 
@@ -208,34 +208,31 @@ export default {
 
         if (response) {
           // 거래 등록 후 최신 거래 내역을 가져옴
-          const userId = 'aaa'; // 예시로 고정된 유저 ID
+          const userId = "aaa"; // 예시로 고정된 유저 ID
           const transactions = await getTransactionsByUserId(userId);
-          console.log('Updated Transactions:', transactions);
+          console.log("Updated Transactions:", transactions);
 
-          this.showToast('거래가 성공적으로 등록되었습니다.');
+          this.showToast("거래가 성공적으로 등록되었습니다.");
           this.closeModal();
-
-          // 부모 컴포넌트로 최신 거래 내역을 전달
-          this.$emit('update-transactions', transactions);
         } else {
-          this.showToast('거래 등록에 실패했습니다.');
+          this.showToast("거래 등록에 실패했습니다.");
         }
       } catch (error) {
-        console.error('[submitForm ERROR]', error);
-        this.showToast('거래 등록에 실패했습니다.');
+        console.error("[submitForm ERROR]", error);
+        this.showToast("거래 등록에 실패했습니다.");
       }
     },
     showToast(message) {
-      const toast = document.createElement('div');
+      const toast = document.createElement("div");
       toast.textContent = message;
-      toast.style.position = 'fixed';
-      toast.style.bottom = '20px';
-      toast.style.left = '50%';
-      toast.style.transform = 'translateX(-50%)';
-      toast.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-      toast.style.color = '#fff';
-      toast.style.padding = '10px 20px';
-      toast.style.borderRadius = '8px';
+      toast.style.position = "fixed";
+      toast.style.bottom = "20px";
+      toast.style.left = "50%";
+      toast.style.transform = "translateX(-50%)";
+      toast.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+      toast.style.color = "#fff";
+      toast.style.padding = "10px 20px";
+      toast.style.borderRadius = "8px";
       toast.style.zIndex = 9999;
       document.body.appendChild(toast);
 

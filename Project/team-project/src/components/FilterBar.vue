@@ -15,20 +15,30 @@
           {{ selectedPeriod }} <i class="bi bi-calendar-event ms-2"></i>
         </button>
 
-        <div v-if="showDatePicker" class="date-picker-container position-absolute mt-1 p-3 bg-white rounded shadow">
+        <div
+          v-if="showDatePicker"
+          class="date-picker-container position-absolute mt-1 p-3 bg-white rounded shadow"
+        >
           <div class="d-flex justify-content-between mb-3">
-            <div></div> <button type="button" class="btn-close" @click="showDatePicker = false"></button>
+            <div></div>
+            <button
+              type="button"
+              class="btn-close"
+              @click="showDatePicker = false"
+            ></button>
           </div>
 
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="date-input-group">
-              <label for="startDate" class="form-label small mb-1">시작일</label>
+              <label for="startDate" class="form-label small mb-1"
+                >시작일</label
+              >
               <input
                 type="date"
                 id="startDate"
                 class="form-control form-control-sm"
                 v-model="startDate"
-              >
+              />
             </div>
             <div class="date-range-separator">~</div>
             <div class="date-input-group">
@@ -38,13 +48,20 @@
                 id="endDate"
                 class="form-control form-control-sm"
                 v-model="endDate"
-              >
+              />
             </div>
           </div>
 
           <div class="date-buttons-group d-flex gap-2 justify-content-end">
-            <button class="btn btn-sm btn-outline-secondary" @click="showDatePicker = false">취소</button>
-            <button class="btn btn-sm btn-primary" @click="applyCustomDate">적용</button>
+            <button
+              class="btn btn-sm btn-outline-secondary"
+              @click="showDatePicker = false"
+            >
+              취소
+            </button>
+            <button class="btn btn-sm btn-primary" @click="applyCustomDate">
+              적용
+            </button>
           </div>
         </div>
       </div>
@@ -60,13 +77,37 @@
             aria-expanded="false"
             ref="typeDropdownButton"
           >
-            {{ selectedType === 'income' ? '입금' : selectedType === 'expense' ? '출금' : selectedType }}
+            {{
+              selectedType === "income"
+                ? "입금"
+                : selectedType === "expense"
+                ? "출금"
+                : selectedType
+            }}
             <i class="bi bi-chevron-down ms-1"></i>
           </button>
           <ul class="dropdown-menu" aria-labelledby="typeDropdown">
-            <li><a class="dropdown-item" href="#" @click.prevent="setType('전체')">전체</a></li>
-            <li><a class="dropdown-item" href="#" @click.prevent="setType('income')">입금</a></li>
-            <li><a class="dropdown-item" href="#" @click.prevent="setType('expense')">출금</a></li>
+            <li>
+              <a class="dropdown-item" href="#" @click.prevent="setType('전체')"
+                >전체</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="#"
+                @click.prevent="setType('income')"
+                >입금</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="#"
+                @click.prevent="setType('expense')"
+                >출금</a
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -84,12 +125,54 @@
             {{ selectedCategory }} <i class="bi bi-chevron-down ms-1"></i>
           </button>
           <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
-            <li><a class="dropdown-item" href="#" @click.prevent="setCategory('전체')">전체</a></li>
-            <li><a class="dropdown-item" href="#" @click.prevent="setCategory('급여')">급여</a></li>
-            <li><a class="dropdown-item" href="#" @click.prevent="setCategory('식비')">식비</a></li>
-            <li><a class="dropdown-item" href="#" @click.prevent="setCategory('쇼핑')">쇼핑</a></li>
-            <li><a class="dropdown-item" href="#" @click.prevent="setCategory('교통비')">교통비</a></li>
-            <li><a class="dropdown-item" href="#" @click.prevent="setCategory('문화생활')">문화생활</a></li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="#"
+                @click.prevent="setCategory('전체')"
+                >전체</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="#"
+                @click.prevent="setCategory('급여')"
+                >급여</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="#"
+                @click.prevent="setCategory('식비')"
+                >식비</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="#"
+                @click.prevent="setCategory('쇼핑')"
+                >쇼핑</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="#"
+                @click.prevent="setCategory('교통비')"
+                >교통비</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="#"
+                @click.prevent="setCategory('문화생활')"
+                >문화생활</a
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -97,232 +180,223 @@
   </div>
 </template>
 
-<script>
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { useTransactionStore } from '@/stores/transaction-store';
+<script setup>
+import { ref, reactive, onMounted, watch } from "vue";
+import { useTransactionStore } from "@/stores/transaction-store";
 
-export default {
-  name: 'TransactionFilterBar',
-  emits: ['filter-transactions', 'filters-applied'],
+// Emits
+const emit = defineEmits(["filter-transactions", "filters-applied"]);
 
-  data() {
-    return {
-      selectedPeriod: '전체',
-      selectedType: '전체',
-      selectedCategory: '전체',
-      showDatePicker: false,
-      startDate: this.formatDateForInput(new Date()),
-      endDate: this.formatDateForInput(new Date()),
-      transactionStore: useTransactionStore(),
-      
-      // 카테고리 매핑 추가
-      categoryMap: {
-        '급여': 'salary',
-        '식비': 'food',
-        '쇼핑': 'shopping',
-        '교통비': 'transportation',
-        '문화생활': 'culture'
-      },
-      reverseCategoryMap: {}
-    };
-  },
+// Store
+const transactionStore = useTransactionStore();
 
-  created() {
-    // 역방향 카테고리 매핑 생성
-    this.reverseCategoryMap = Object.fromEntries(
-      Object.entries(this.categoryMap).map(([key, value]) => [value, key])
+// 상태
+const selectedPeriod = ref("전체");
+const selectedType = ref("전체");
+const selectedCategory = ref("전체");
+const showDatePicker = ref(false);
+const startDate = ref(formatDateForInput(new Date()));
+const endDate = ref(formatDateForInput(new Date()));
+
+// 카테고리 매핑
+const categoryMap = {
+  급여: "salary",
+  식비: "food",
+  쇼핑: "shopping",
+  교통비: "transportation",
+  문화생활: "culture",
+};
+const reverseCategoryMap = Object.fromEntries(
+  Object.entries(categoryMap).map(([key, val]) => [val, key])
+);
+
+// 날짜 포맷 함수
+function formatDateForInput(date) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+function formatDateDisplay(date) {
+  return formatDateForInput(date);
+}
+
+// 날짜 범위 설정
+function setPeriod(period) {
+  selectedPeriod.value = period;
+  const today = new Date();
+
+  if (period === "오늘") {
+    startDate.value = formatDateForInput(today);
+    endDate.value = formatDateForInput(today);
+  } else if (period === "이번 주") {
+    const first = today.getDate() - today.getDay();
+    const startOfWeek = new Date(today);
+    startOfWeek.setDate(first);
+    startDate.value = formatDateForInput(startOfWeek);
+    endDate.value = formatDateForInput(today);
+  } else if (period === "이번 달") {
+    const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    startDate.value = formatDateForInput(startOfMonth);
+    endDate.value = formatDateForInput(today);
+  } else {
+    startDate.value = "";
+    endDate.value = "";
+  }
+
+  showDatePicker.value = false;
+  filterTransactions();
+}
+
+function toggleDatePicker() {
+  showDatePicker.value = !showDatePicker.value;
+
+  if (showDatePicker.value && selectedPeriod.value === "전체") {
+    const today = new Date();
+    const lastMonth = new Date();
+    lastMonth.setMonth(today.getMonth() - 1);
+    startDate.value = formatDateForInput(lastMonth);
+    endDate.value = formatDateForInput(today);
+  }
+}
+
+function applyCustomDate() {
+  if (startDate.value && endDate.value) {
+    const start = new Date(startDate.value);
+    const end = new Date(endDate.value);
+
+    if (start <= end) {
+      selectedPeriod.value = `${formatDateDisplay(start)} ~ ${formatDateDisplay(
+        end
+      )}`;
+      showDatePicker.value = false;
+      filterTransactions();
+    } else {
+      alert("시작일은 종료일보다 이전이어야 합니다.");
+    }
+  } else if (!startDate.value && !endDate.value) {
+    selectedPeriod.value = "전체";
+    showDatePicker.value = false;
+    filterTransactions();
+  } else {
+    alert("시작일과 종료일을 모두 설정해주세요.");
+  }
+}
+
+function setType(type) {
+  selectedType.value = type;
+  filterTransactions();
+}
+
+function setCategory(category) {
+  selectedCategory.value = category;
+  filterTransactions();
+}
+
+function filterTransactions() {
+  const transactions = transactionStore.transactionInfo || [];
+
+  const dateFilter = (tx) => {
+    if (selectedPeriod.value === "전체") return true;
+
+    const txDate = new Date(tx.date);
+    txDate.setHours(0, 0, 0, 0);
+
+    if (selectedPeriod.value.includes("~")) {
+      const [startStr, endStr] = selectedPeriod.value
+        .split("~")
+        .map((d) => d.trim());
+      const start = new Date(startStr);
+      const end = new Date(endStr);
+      start.setHours(0, 0, 0, 0);
+      end.setHours(23, 59, 59, 999);
+      return txDate >= start && txDate <= end;
+    }
+
+    const today = new Date();
+    if (selectedPeriod.value === "오늘") {
+      return txDate.toDateString() === today.toDateString();
+    }
+
+    if (selectedPeriod.value === "이번 주") {
+      const firstDay = new Date(today);
+      firstDay.setDate(today.getDate() - today.getDay());
+      firstDay.setHours(0, 0, 0, 0);
+      return txDate >= firstDay && txDate <= today;
+    }
+
+    if (selectedPeriod.value === "이번 달") {
+      const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+      return txDate >= firstDay && txDate <= today;
+    }
+
+    return true;
+  };
+
+  const typeFilter = (tx) =>
+    selectedType.value === "전체" || tx.type === selectedType.value;
+
+  const categoryFilter = (tx) => {
+    if (selectedCategory.value === "전체") return true;
+    const engCategory = categoryMap[selectedCategory.value];
+    return tx.category === engCategory;
+  };
+
+  const filtered = transactions.filter(
+    (tx) => dateFilter(tx) && typeFilter(tx) && categoryFilter(tx)
+  );
+
+  emit("filter-transactions", filtered);
+  emit("filters-applied", {
+    period: selectedPeriod.value,
+    type: selectedType.value === "전체" ? null : selectedType.value,
+    category:
+      selectedCategory.value === "전체"
+        ? null
+        : reverseCategoryMap[categoryMap[selectedCategory.value]],
+    dateRange: selectedPeriod.value.includes("~")
+      ? {
+          start: selectedPeriod.value.split("~")[0].trim(),
+          end: selectedPeriod.value.split("~")[1].trim(),
+        }
+      : null,
+  });
+}
+
+function handleOutsideClick(e) {
+  if (showDatePicker.value) {
+    const datepicker = document.querySelector(".date-picker-container");
+    const dateButton = document.querySelector(
+      ".filter-item .btn-outline-secondary"
     );
-
-    // 데이터 로드가 완료된 후 필터링 실행
-    setTimeout(() => {
-      this.filterTransactions();
-    }, 500);
-    
-    document.addEventListener('click', this.handleOutsideClick);
-  },
-
-  beforeUnmount() {
-    document.removeEventListener('click', this.handleOutsideClick);
-  },
-
-  methods: {
-    formatDateForInput(date) {
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const day = String(date.getDate()).padStart(2, '0');
-      return `${year}-${month}-${day}`;
-    },
-
-    formatDateDisplay(date) {
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const day = String(date.getDate()).padStart(2, '0');
-      return `${year}-${month}-${day}`;
-    },
-
-    setPeriod(period) {
-      this.selectedPeriod = period;
-      const today = new Date();
-      if (period === '오늘') {
-        this.startDate = this.formatDateForInput(today);
-        this.endDate = this.formatDateForInput(today);
-      } else if (period === '이번 주') {
-        const first = today.getDate() - today.getDay();
-        const startOfWeek = new Date(today);
-        startOfWeek.setDate(first);
-        this.startDate = this.formatDateForInput(startOfWeek);
-        this.endDate = this.formatDateForInput(today);
-      } else if (period === '이번 달') {
-        const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-        this.startDate = this.formatDateForInput(startOfMonth);
-        this.endDate = this.formatDateForInput(today);
-      } else if (period === '전체') {
-        this.startDate = '';
-        this.endDate = '';
-      }
-      this.showDatePicker = false;
-      this.filterTransactions();
-    },
-
-    toggleDatePicker() {
-      this.showDatePicker = !this.showDatePicker;
-      if (this.showDatePicker && this.selectedPeriod === '전체') {
-        const today = new Date();
-        const lastMonth = new Date();
-        lastMonth.setMonth(today.getMonth() - 1);
-        this.startDate = this.formatDateForInput(lastMonth);
-        this.endDate = this.formatDateForInput(today);
-      }
-    },
-
-    applyCustomDate() {
-      if (this.startDate && this.endDate) {
-        const start = new Date(this.startDate);
-        const end = new Date(this.endDate);
-        if (start <= end) {
-          this.selectedPeriod = `${this.formatDateDisplay(start)} ~ ${this.formatDateDisplay(end)}`;
-          this.showDatePicker = false;
-          this.filterTransactions();
-        } else {
-          alert('시작일은 종료일보다 이전이어야 합니다.');
-        }
-      } else if (!this.startDate && !this.endDate) {
-        this.selectedPeriod = '전체';
-        this.showDatePicker = false;
-        this.filterTransactions();
-      } else {
-        alert('시작일과 종료일을 모두 설정해주세요.');
-      }
-    },
-
-    setType(type) {
-      this.selectedType = type;
-      if (this.$refs.typeDropdownButton) {
-        this.$refs.typeDropdownButton.innerText = (
-          type === 'income' ? '입금 ' : type === 'expense' ? '출금 ' : type + ' '
-        );
-        const icon = document.createElement('i');
-        icon.className = 'bi bi-chevron-down ms-1';
-        this.$refs.typeDropdownButton.appendChild(icon);
-      }
-      this.filterTransactions();
-    },
-
-    setCategory(category) {
-      this.selectedCategory = category;
-      this.filterTransactions();
-    },
-
-    filterTransactions() {
-      const transactions = this.transactionStore.transactionInfo || [];
-
-      const dateFilter = (transaction) => {
-        if (this.selectedPeriod === '전체') return true;
-
-        const transactionDate = new Date(transaction.date);
-        transactionDate.setHours(0, 0, 0, 0);
-
-        if (this.selectedPeriod.includes('~')) {
-          const [startStr, endStr] = this.selectedPeriod.split('~').map(d => d.trim());
-          const start = new Date(startStr);
-          const end = new Date(endStr);
-          start.setHours(0, 0, 0, 0);
-          end.setHours(23, 59, 59, 999);
-
-          return transactionDate >= start && transactionDate <= end;
-        }
-
-        if (this.selectedPeriod === '오늘') {
-          const today = new Date();
-          return (
-            transactionDate.getFullYear() === today.getFullYear() &&
-            transactionDate.getMonth() === today.getMonth() &&
-            transactionDate.getDate() === today.getDate()
-          );
-        }
-
-        if (this.selectedPeriod === '이번 주') {
-          const today = new Date();
-          const firstDayOfWeek = new Date(today);
-          firstDayOfWeek.setDate(today.getDate() - today.getDay());
-          firstDayOfWeek.setHours(0, 0, 0, 0);
-
-          return transactionDate >= firstDayOfWeek && transactionDate <= today;
-        }
-
-        if (this.selectedPeriod === '이번 달') {
-          const today = new Date();
-          const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-
-          return transactionDate >= firstDayOfMonth && transactionDate <= today;
-        }
-
-        return true;
-      };
-
-      const typeFilter = (transaction) => {
-        return this.selectedType === '전체' || transaction.type === this.selectedType;
-      };
-
-      const categoryFilter = (transaction) => {
-        if (this.selectedCategory === '전체') return true;
-        
-        const englishCategory = this.categoryMap[this.selectedCategory];
-        return transaction.category === englishCategory;
-      };
-
-      const filteredTransactions = transactions.filter(
-        (transaction) => dateFilter(transaction) && typeFilter(transaction) && categoryFilter(transaction)
-      );
-
-      this.$emit('filter-transactions', filteredTransactions);
-      this.$emit('filters-applied', {
-        period: this.selectedPeriod,
-        type: this.selectedType === '전체' ? null : this.selectedType,
-        category: this.selectedCategory === '전체' ? null : this.reverseCategoryMap[this.categoryMap[this.selectedCategory]],
-        dateRange: this.selectedPeriod.includes('~')
-          ? { start: this.selectedPeriod.split('~')[0].trim(), end: this.selectedPeriod.split('~')[1].trim() }
-          : null,
-      });
-    },
-
-    handleOutsideClick(e) {
-      if (this.showDatePicker) {
-        const datepicker = document.querySelector('.date-picker-container');
-        const dateButton = document.querySelector('.filter-item .btn-outline-secondary');
-
-        if (
-          datepicker &&
-          !datepicker.contains(e.target) &&
-          (!dateButton || !dateButton.contains(e.target))
-        ) {
-          this.showDatePicker = false;
-        }
-      }
+    if (
+      datepicker &&
+      !datepicker.contains(e.target) &&
+      (!dateButton || !dateButton.contains(e.target))
+    ) {
+      showDatePicker.value = false;
     }
   }
-};
+}
+
+onMounted(() => {
+  // 최초 필터링 실행
+  setTimeout(() => {
+    filterTransactions();
+  }, 500);
+
+  document.addEventListener("click", handleOutsideClick);
+});
+
+watch(
+  () => showDatePicker.value,
+  (visible) => {
+    if (!visible) {
+      document.removeEventListener("click", handleOutsideClick);
+    }
+  }
+);
 </script>
 
 <style scoped>

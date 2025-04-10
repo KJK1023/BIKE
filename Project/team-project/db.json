@@ -65,6 +65,204 @@
       "category": "food",
       "amount": 8000,
       "memo": "제육덮밥"
+    },
+    {
+      "id": "9",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-05-05",
+      "category": "etc",
+      "amount": 9000,
+      "memo": "친구의 돈을 갚았다"
+    },
+    {
+      "id": "10",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-06-09",
+      "category": "shopping",
+      "amount": 20000,
+      "memo": "옷 샀다"
+    },
+    {
+      "id": "11",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-06-10",
+      "category": "food",
+      "amount": 12000,
+      "memo": "혼밥했다"
+    },
+    {
+      "id": "12",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-05-25",
+      "category": "etc",
+      "amount": 3000,
+      "memo": "길에서 돈을 잃어버렸다"
+    },
+    {
+      "id": "13",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-29",
+      "category": "shopping",
+      "amount": 50000,
+      "memo": "사고싶은 옷을 샀다"
+    },
+    {
+      "id": "14",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-06-08",
+      "category": "food",
+      "amount": 22000,
+      "memo": "치킨먹었다"
+    },
+    {
+      "id": "15",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-06-15",
+      "category": "food",
+      "amount": 300000,
+      "memo": "식비"
+    },
+    {
+      "id": "16",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-06-15",
+      "category": "transportation",
+      "amount": 120000,
+      "memo": "교통비"
+    },
+    {
+      "id": "17",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-06-15",
+      "category": "team_dinner",
+      "amount": 180000,
+      "memo": "회식"
+    },
+    {
+      "id": "ef69",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-06-25",
+      "category": "transportation",
+      "amount": 2.2222222222222222e21,
+      "memo": ""
+    },
+    {
+      "id": "7e91",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2026-01-10",
+      "category": "salary",
+      "amount": 11111111111111,
+      "memo": "dd"
+    },
+    {
+      "id": "a1ff",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-10",
+      "category": "allowance",
+      "amount": 111111111,
+      "memo": ""
+    },
+    {
+      "id": "8702",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-10",
+      "category": "allowance",
+      "amount": 111111,
+      "memo": "ddd"
+    },
+    {
+      "id": "f43a",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-21",
+      "category": "allowance",
+      "amount": 22222222,
+      "memo": ""
+    },
+    {
+      "id": "d7c3",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-23",
+      "category": "team_dinner",
+      "amount": 2222222,
+      "memo": ""
+    },
+    {
+      "id": "4b83",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-08-13",
+      "category": "transportation",
+      "amount": 22222223123213,
+      "memo": ""
+    },
+    {
+      "id": "0e22",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2026-09-30",
+      "category": "food",
+      "amount": 123213213213123220,
+      "memo": ""
+    },
+    {
+      "id": "bb17",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2027-03-29",
+      "category": "food",
+      "amount": 23123123,
+      "memo": ""
+    },
+    {
+      "id": "93b5",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-29",
+      "category": "shopping",
+      "amount": 333333,
+      "memo": ""
+    },
+    {
+      "id": "0788",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-29",
+      "category": "culture",
+      "amount": 333,
+      "memo": ""
+    },
+    {
+      "id": "14dc",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2028-06-30",
+      "category": "allowance",
+      "amount": 1111,
+      "memo": ""
+    },
+    {
+      "id": "3c1b",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2028-09-10",
+      "category": "allowance",
+      "amount": 1111,
+      "memo": "3"
     }
   ]
 }

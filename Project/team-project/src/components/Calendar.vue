@@ -34,14 +34,15 @@
 import { ref, onMounted } from "vue";
 import { useTransactionStore } from "@/stores/transaction-store";
 import { formatDate } from "../utils/format-date";
-import { data } from "./line-chart-config";
+import { useCalendarStore } from "@/stores/calendar-store";
 
 const transactionStore = useTransactionStore();
 const selectedDate = ref(formatDate(new Date()));
 const incomeExpenseMap = ref({});
+const calendarStore = useCalendarStore();
 
 const selectDate = (dateStr) => {
-  selectedDate.value = dateStr;
+  calendarStore.selectedDate = dateStr;
 };
 
 const isHighlighted = (dateStr) => {
@@ -52,6 +53,7 @@ const isHighlighted = (dateStr) => {
 onMounted(async () => {
   await transactionStore.fetchTransaction();
   const transactions = transactionStore.transactionInfo;
+
   // 잘 찍힘
   console.log(transactions);
 

@@ -3,7 +3,7 @@
     <div class="title-wrapper">
       <h1 id="title-text">주간 수입/지출 현황</h1>
       <div class="view-all-wrapper">
-        <a id="view-all" href="/transactions">전체 보기</a>
+        <a id="view-all" href="/calendar">전체 보기</a>
         <i id="chevron-right" class="fa-solid fa-chevron-right"></i>
       </div>
     </div>

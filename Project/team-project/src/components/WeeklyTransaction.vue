@@ -72,7 +72,7 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  width: 1140px;
+  width: 100%;
   gap: 10px;
   border-radius: 8px;
   padding: 20px;

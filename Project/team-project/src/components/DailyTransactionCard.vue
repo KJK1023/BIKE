@@ -36,7 +36,7 @@ const transactionData = computed(() =>
 
 <style scoped>
 .card-box {
-  width: 384px;
+  width: 30%;
   height: fit-content;
   background-color: #fff;
   padding: 26px;
@@ -48,6 +48,7 @@ const transactionData = computed(() =>
   font-size: 20px;
   font-weight: bold;
   margin: 0;
+  margin-bottom: 30px;
 }
 ul {
   padding: 0;

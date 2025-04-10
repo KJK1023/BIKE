@@ -118,7 +118,7 @@ const chartOptions = {
 <style scoped>
 .circle-graph-container {
   background-color: #fff;
-  width: 300px;
+  width: 30%;
   padding: 16px;
   margin-left: 30px;
   border-radius: 8px;
@@ -126,11 +126,15 @@ const chartOptions = {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
 }
 
 .title {
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: 12px;
+  text-align: left;
+  align-self: flex-start;
 }
 
 .chart-wrapper {
@@ -145,7 +149,7 @@ const chartOptions = {
 }
 
 .category-list {
-  width: 80%;
+  width: 92%;
   display: flex;
   flex-direction: column;
   padding-left: 0;

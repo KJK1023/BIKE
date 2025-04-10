@@ -6,7 +6,7 @@ import Header from "@/components/Header.vue";
 <template>
   <Header />
   <main class="main-content">
-    <div style="margin-top: 10px">
+    <div style="margin-top: 10px; width: 90%">
       <router-view />
     </div>
   </main>
@@ -14,8 +14,9 @@ import Header from "@/components/Header.vue";
 
 <style scoped>
 .main-content {
-  padding-top: 80px;
-  width: 100vw;
+  padding-top: 6%;
+  padding-bottom: 6%;
+  width: 100%;
   min-height: calc(100vh - 80px);
   display: flex;
   justify-content: center;

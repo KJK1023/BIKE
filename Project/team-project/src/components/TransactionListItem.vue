@@ -2,65 +2,92 @@
   <tr class="border-bottom">
     <td class="text-secondary">{{ transaction.date }}</td>
     <td>
-      <span :class="['category-badge-rounded', transaction.type === 'income' ? 'text-success-category' : 'text-danger-category']">
+      <span
+        :class="[
+          'category-badge-rounded',
+          transaction.type === 'income'
+            ? 'text-success-category'
+            : 'text-danger-category',
+        ]"
+      >
         {{ translateCategory(transaction.category) }}
       </span>
     </td>
     <td class="text-secondary">{{ transaction.description }}</td>
-    <td :class="transaction.type === 'income' ? 'text-success-amount' : 'text-danger-amount'">
+    <td
+      :class="
+        transaction.type === 'income'
+          ? 'text-success-amount'
+          : 'text-danger-amount'
+      "
+    >
       {{ formatAmount(transaction.amount, transaction.type) }}
     </td>
-    <td class="text-secondary">{{ transaction.memo || '-' }}</td>
+    <td class="text-secondary">{{ transaction.memo || "-" }}</td>
     <td class="text-center">
-      <button class="btn btn-sm btn-link text-primary p-0 me-2" @click="onEditTransaction">
-        <img src="@/assets/EDIT_BUTTON.svg" alt="수정" style="width: 1em; height: 1em; vertical-align: middle;">
+      <button
+        class="btn btn-sm btn-link text-primary p-0 me-2"
+        @click="onEditTransaction"
+      >
+        <img
+          src="@/assets/EDIT_BUTTON.svg"
+          alt="수정"
+          style="width: 1em; height: 1em; vertical-align: middle"
+        />
       </button>
-      <button class="btn btn-sm btn-link text-danger p-0" @click="onDeleteTransaction">
-        <img src="@/assets/BUTTON.svg" alt="삭제" style="width: 1em; height: 1em; vertical-align: middle;">
+      <button
+        class="btn btn-sm btn-link text-danger p-0"
+        @click="
+          () => {
+            console.log('click');
+            onDeleteTransaction(transaction.id);
+          }
+        "
+      >
+        <img
+          src="@/assets/BUTTON.svg"
+          alt="삭제"
+          style="width: 1em; height: 1em; vertical-align: middle"
+        />
       </button>
     </td>
   </tr>
 </template>
 
-<script>
-import { useTransactionStore } from '@/stores/transaction-store';
-import { translateCategory } from '@/utils/translate-category'; // translateCategory 함수 import
+<script setup>
+import { useTransactionStore } from "@/stores/transaction-store";
+import { translateCategory } from "@/utils/translate-category";
+import { toRefs } from "vue";
 
-export default {
-  name: 'TransactionListItem',
-  props: {
-    transaction: {
-      type: Object,
-      required: true
-    }
+const props = defineProps({
+  transaction: {
+    type: Object,
+    required: true,
   },
-  setup() {
-    // Pinia store를 사용하기 위해 setup() 함수 내에서 호출
-    const transactionStore = useTransactionStore();
-    return {
-      transactionStore
-    };
-  },
-  methods: {
-    translateCategory, // translateCategory 메서드 추가
-    formatAmount(amount, type) {
-      const formattedAmount = amount.toLocaleString();
-      return type === 'income' ? `+${formattedAmount}원` : `-${formattedAmount}원`;
-    },
-    onEditTransaction() {
-      // Pinia store의 데이터를 업데이트하고 싶다면 여기서 사용할 수 있습니다
-      this.$emit('edit-transaction', {
-        type: this.transaction.type,
-        transaction: this.transaction
-      });
-    },
-    onDeleteTransaction() {
-      // Pinia store의 데이터를 업데이트하고 싶다면 여기서 사용할 수 있습니다
-      this.$emit('delete-transaction', {
-        type: this.transaction.type,
-        transaction: this.transaction
-      });
-    }
+});
+
+console.log(props.transaction);
+
+const transactionStore = useTransactionStore();
+
+const emit = defineEmits(["edit-transaction", "delete-transaction"]);
+
+const formatAmount = (amount, type) => {
+  const formattedAmount = amount.toLocaleString();
+  return type === "income" ? `+${formattedAmount}원` : `-${formattedAmount}원`;
+};
+
+const onEditTransaction = () => {
+  emit("edit-transaction", {
+    type: props.transaction.type,
+    transaction: props.transaction,
+  });
+};
+
+const onDeleteTransaction = (id) => {
+  const confirmed = window.confirm("정말로 삭제하시겠습니까?");
+  if (confirmed) {
+    transactionStore.deleteTransaction(id);
   }
 };
 </script>

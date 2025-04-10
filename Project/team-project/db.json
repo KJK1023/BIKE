@@ -5,71 +5,31 @@
       "pw": "bbb",
       "name": "human1",
       "email": "human1@gmail.com",
-      "tel": "010-1234-5678",
-      "id": "3626"
+      "tel": "010-1234-5678"
     },
     {
       "userId": "ccc",
       "pw": "ddd",
       "name": "human2",
       "email": "human2@gmail.com",
-      "tel": "010-1234-5678",
-      "id": "7add"
+      "tel": "010-1234-5678"
     },
     {
       "userId": "eee",
       "pw": "fff",
       "name": "human3",
       "email": "human3@gmail.com",
-      "tel": "010-1234-5678",
-      "id": "5cdf"
+      "tel": "010-1234-5678"
     },
     {
       "userId": "ggg",
       "pw": "hhh",
       "name": "human4",
       "email": "human4@gmail.com",
-      "tel": "010-1234-5678",
-      "id": "74ed"
+      "tel": "010-1234-5678"
     }
   ],
   "transaction": [
-    {
-      "id": "1",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-05-01",
-      "category": "etc",
-      "amount": 9000,
-      "memo": "친구한테 돈을 빌렸다"
-    },
-    {
-      "id": "2",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-06-09",
-      "category": "allowance",
-      "amount": 10000,
-      "memo": "아싸 용돈"
-    },
-    {
-      "id": "3",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-06-01",
-      "category": "salary",
-      "amount": 120000,
-      "memo": "아싸 월급"
-    },
-    {
-      "id": "4",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-06-13",
-      "category": "etc",
-      "amount": 3000,
-      "memo": "길에서 주웠다"
-    },
     {
       "id": "5",
       "userId": "aaa",

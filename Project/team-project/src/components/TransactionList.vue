@@ -73,6 +73,8 @@ onMounted(async () => {
   filteredTransactions.value = [...transactionStore.transactionInfo];
 });
 
+console.log("slice:", filteredTransactions.value.slice());
+
 const sortedFilteredTransactions = computed(() => {
   return [...filteredTransactions.value]
     .slice()

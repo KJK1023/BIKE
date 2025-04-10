@@ -89,9 +89,11 @@ export const postTransaction = async (transaction) => {
     throw e;
   }
 };
+
 export const putTransaction = async (transaction) => {
   try {
     const transactionData = {
+      id: transaction.id,
       userId: "aaa",
       type: transaction.type,
       date: transaction.date,
@@ -108,6 +110,16 @@ export const putTransaction = async (transaction) => {
     return response;
   } catch (e) {
     console.error("Error updating transaction", e);
+    throw e;
+  }
+};
+
+export const deleteTransaction = async (id) => {
+  try {
+    const response = await axios.delete(`/api/transaction/${id}`);
+    return response;
+  } catch (e) {
+    console.error("Error deleting transaction", e);
     throw e;
   }
 };

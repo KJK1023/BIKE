@@ -27,7 +27,9 @@
       <button class="change-password-button">비밀번호 변경</button>
     </div>
     <div class="button-wrapper">
-      <button class="save-changes-button">변경사항 저장</button>
+      <button class="save-changes-button" @click="onSaveChanges">
+        변경사항 저장
+      </button>
     </div>
   </div>
 </template>
@@ -35,26 +37,35 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useUserStore } from "@/stores/user-store";
+import * as userApi from "@/api/userAPI";
+
 const userStore = useUserStore();
 
 const name = ref("");
 const email = ref("");
 const phone = ref("");
+const targetUserId = ref("");
+const targetUserPw = ref("");
 
 onMounted(async () => {
   await userStore.fetchUser();
-
-  console.log(userStore.userInfo);
   const targetUser = userStore.userInfo[0];
 
   if (targetUser) {
     name.value = targetUser.name;
     email.value = targetUser.email;
     phone.value = targetUser.tel;
+
+    targetUserId.value = targetUser.id;
+    targetUserPw.value = targetUser.pw;
+
+    console.log("현재 로그인된 id ", targetUserId.value);
+    console.log("현재 로그인된 pw ", targetUserPw.value);
   } else {
-    console.warn("id가 'aaa'인 유저를 찾을 수 없습니다.");
+    console.warn("유저 정보가 없습니다.");
   }
 });
+
 const onChangeImage = () => {
   console.log("이미지 변경 버튼 클릭");
 };
@@ -63,8 +74,25 @@ const onChangePassword = () => {
   console.log("비밀번호 변경 버튼 클릭");
 };
 
-const onSaveChanges = () => {
-  console.log("변경사항 저장:", name.value, email.value, phone.value);
+const onSaveChanges = async () => {
+  const modifyUser = {
+    id: targetUserId.value,
+    pw: targetUserPw.value,
+    name: name.value,
+    email: email.value,
+    tel: phone.value,
+  };
+
+  const url = `/api/user/${targetUserId.value}`;
+
+  try {
+    const response = await userApi.put(url, modifyUser);
+    console.log("✅ 수정 성공:", response);
+    alert("변경사항이 저장되었습니다.");
+  } catch (error) {
+    console.error("❌ 수정 실패:", error);
+    alert("변경에 실패했습니다.");
+  }
 };
 </script>
 

@@ -31,16 +31,14 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useTransactionStore } from "@/stores/transaction-store";
 import { formatDate } from "../utils/format-date";
+import { data } from "./line-chart-config";
 
-const incomeExpenseMap = {
-  "2025-04-08": { income: 20000, expense: 10000 },
-  "2025-04-09": { income: 50000, expense: 32000 },
-  "2025-04-10": { income: 40000, expense: 10000 },
-};
-
+const transactionStore = useTransactionStore();
 const selectedDate = ref(formatDate(new Date()));
+const incomeExpenseMap = ref({});
 
 const selectDate = (dateStr) => {
   selectedDate.value = dateStr;
@@ -49,6 +47,39 @@ const selectDate = (dateStr) => {
 const isHighlighted = (dateStr) => {
   return selectedDate.value === dateStr;
 };
+
+//데이터 가져오기
+onMounted(async () => {
+  await transactionStore.fetchTransaction();
+  const transactions = transactionStore.transactionInfo;
+  // 잘 찍힘
+  console.log(transactions);
+
+  const map = {};
+
+  // 날짜별로 수입/지출 정리
+  transactions.forEach((item) => {
+    const date = formatDate(new Date(item.date));
+    // console.log(`날짜 데이터 : ${date}`);
+    if (!map[date]) {
+      map[date] = { income: 0, expense: 0 };
+    }
+    if (item.type === "income") {
+      map[date].income += item.amount;
+    } else if (item.type === "expense") {
+      map[date].expense += item.amount;
+    }
+
+    // console.log(`map[date].income : ${map[date].income}`);
+    // console.log(`map[date].expense : ${map[date].expense}`);
+  });
+
+  incomeExpenseMap.value = map;
+  console.log(
+    "incomeExpenseMap.value = ",
+    JSON.stringify(incomeExpenseMap.value, null, 2)
+  );
+});
 </script>
 
 <style scoped>
@@ -99,10 +130,20 @@ const isHighlighted = (dateStr) => {
 }
 .income {
   color: #16a34a;
-  margin: 0;
+  background-color: rgba(22, 163, 74, 0.1);
+  padding: auto 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  margin-top: 2px;
 }
+
 .expense {
   color: #dc2626;
-  margin: 0;
+  background-color: rgba(220, 38, 38, 0.1);
+  padding: auto 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
 }
 </style>

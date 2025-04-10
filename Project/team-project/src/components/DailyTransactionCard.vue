@@ -15,6 +15,7 @@
         </p>
       </li>
     </ul>
+    <p v-else class="no-data-text">거래 내역 없음</p>
   </div>
 </template>
 
@@ -87,5 +88,12 @@ li {
   font-size: 16px;
   color: #dc2626;
   font-weight: 600;
+}
+.no-data-text {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #9ca3af;
+  padding: 40px 0;
 }
 </style>

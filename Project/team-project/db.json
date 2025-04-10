@@ -5,28 +5,32 @@
       "pw": "bbb",
       "name": "human1",
       "email": "human1@gmail.com",
-      "tel": "010-1234-5678"
+      "tel": "010-1234-5678",
+      "id": "3626"
     },
     {
       "userId": "ccc",
       "pw": "ddd",
       "name": "human2",
       "email": "human2@gmail.com",
-      "tel": "010-1234-5678"
+      "tel": "010-1234-5678",
+      "id": "7add"
     },
     {
       "userId": "eee",
       "pw": "fff",
       "name": "human3",
       "email": "human3@gmail.com",
-      "tel": "010-1234-5678"
+      "tel": "010-1234-5678",
+      "id": "5cdf"
     },
     {
       "userId": "ggg",
       "pw": "hhh",
       "name": "human4",
       "email": "human4@gmail.com",
-      "tel": "010-1234-5678"
+      "tel": "010-1234-5678",
+      "id": "74ed"
     }
   ],
   "transaction": [
@@ -182,6 +186,105 @@
       "category": "team_dinner",
       "amount": 180000,
       "memo": "회식"
+    },
+    {
+      "id": "ef69",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-06-25",
+      "category": "transportation",
+      "amount": 2.2222222222222222e+21,
+      "memo": ""
+    },
+    {
+      "id": "7e91",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2026-01-10",
+      "category": "salary",
+      "amount": 11111111111111,
+      "memo": "dd"
+    },
+    {
+      "id": "a1ff",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-10",
+      "category": "allowance",
+      "amount": 111111111,
+      "memo": ""
+    },
+    {
+      "id": "8702",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-10",
+      "category": "allowance",
+      "amount": 111111,
+      "memo": "ddd"
+    },
+    {
+      "id": "f43a",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-21",
+      "category": "allowance",
+      "amount": 22222222,
+      "memo": ""
+    },
+    {
+      "id": "d7c3",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-23",
+      "category": "team_dinner",
+      "amount": 2222222,
+      "memo": ""
+    },
+    {
+      "id": "4b83",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-08-13",
+      "category": "transportation",
+      "amount": 22222223123213,
+      "memo": ""
+    },
+    {
+      "id": "0e22",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2026-09-30",
+      "category": "food",
+      "amount": 123213213213123220,
+      "memo": ""
+    },
+    {
+      "id": "bb17",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2027-03-29",
+      "category": "food",
+      "amount": 23123123,
+      "memo": ""
+    },
+    {
+      "id": "93b5",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-29",
+      "category": "shopping",
+      "amount": 333333,
+      "memo": ""
+    },
+    {
+      "id": "0788",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-29",
+      "category": "culture",
+      "amount": 333,
+      "memo": ""
     }
   ]
 }

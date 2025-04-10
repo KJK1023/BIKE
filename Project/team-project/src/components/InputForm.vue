@@ -124,123 +124,113 @@
   </div>
 </template>
 
-<script>
-import { postTransaction, getTransactionsByUserId } from "@/api/userAPI"; // userAPI.js에서 함수 가져오기
+<script setup>
+import { ref, computed, watch } from "vue";
+import { useTransactionStore } from "@/stores/transaction-store";
 
-export default {
-  name: "InputForm",
-  props: {
-    visible: {
-      type: Boolean,
-      default: false,
-    },
-    initialData: {
-      type: Object,
-      default: null,
-    },
+const props = defineProps({
+  visible: {
+    type: Boolean,
+    default: false,
   },
-  computed: {
-    isEditing() {
-      return this.initialData !== null;
-    },
+  initialData: {
+    type: Object,
+    default: null,
   },
-  watch: {
-    initialData: {
-      immediate: true,
-      handler(newVal) {
-        if (newVal) {
-          // 수정 모드일 때 초기 데이터로 폼 채우기
-          this.form = { ...newVal };
-        } else {
-          // 새 거래 등록 모드일 때 폼 초기화
-          this.form = {
-            type: "income",
-            date: "",
-            category: "",
-            amount: 0,
-            content: "",
-          };
-        }
-      },
-    },
-  },
-  data() {
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, "0");
-    const dd = String(today.getDate()).padStart(2, "0");
-    const formattedToday = `${yyyy}-${mm}-${dd}`;
+});
 
-    return {
-      form: {
+const emit = defineEmits(["close"]);
+
+const transactionStore = useTransactionStore();
+
+// 오늘 날짜 기본값
+const today = new Date();
+const yyyy = today.getFullYear();
+const mm = String(today.getMonth() + 1).padStart(2, "0");
+const dd = String(today.getDate()).padStart(2, "0");
+const formattedToday = `${yyyy}-${mm}-${dd}`;
+
+// 폼 상태
+const form = ref({
+  type: "income",
+  date: formattedToday,
+  category: "",
+  amount: "",
+  content: "",
+});
+
+// 수정 모드인지 확인
+const isEditing = computed(() => props.initialData !== null);
+
+// initialData가 바뀌면 폼 초기화
+watch(
+  () => props.initialData,
+  (newVal) => {
+    if (newVal) {
+      form.value = { ...newVal };
+    } else {
+      form.value = {
         type: "income",
-        date: formattedToday, // 오늘 날짜를 기본값으로
+        date: formattedToday,
         category: "",
         amount: "",
         content: "",
-      },
-    };
-  },
-
-  methods: {
-    closeModal() {
-      this.$emit("close");
-    },
-    // InputForm.vue에서 submitForm 함수 수정
-    async submitForm() {
-      if (this.form.amount <= 0) {
-        this.showToast("금액을 0보다 큰 값으로 입력하세요.");
-        return;
-      }
-
-      // 거래 등록
-      const transaction = {
-        type: this.form.type,
-        date: this.form.date,
-        category: this.form.category,
-        amount: this.form.amount,
-        content: this.form.content, // 내용은 'memo'로 변환하여 서버로 보냄
       };
-
-      try {
-        // 거래 데이터 db.json에 저장
-        const response = await postTransaction(transaction);
-
-        if (response) {
-          // 거래 등록 후 최신 거래 내역을 가져옴
-          const userId = "aaa"; // 예시로 고정된 유저 ID
-          const transactions = await getTransactionsByUserId(userId);
-          console.log("Updated Transactions:", transactions);
-
-          this.showToast("거래가 성공적으로 등록되었습니다.");
-          this.closeModal();
-        } else {
-          this.showToast("거래 등록에 실패했습니다.");
-        }
-      } catch (error) {
-        console.error("[submitForm ERROR]", error);
-        this.showToast("거래 등록에 실패했습니다.");
-      }
-    },
-    showToast(message) {
-      const toast = document.createElement("div");
-      toast.textContent = message;
-      toast.style.position = "fixed";
-      toast.style.bottom = "20px";
-      toast.style.left = "50%";
-      toast.style.transform = "translateX(-50%)";
-      toast.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
-      toast.style.color = "#fff";
-      toast.style.padding = "10px 20px";
-      toast.style.borderRadius = "8px";
-      toast.style.zIndex = 9999;
-      document.body.appendChild(toast);
-
-      setTimeout(() => {
-        document.body.removeChild(toast);
-      }, 2000);
-    },
+    }
   },
+  { immediate: true }
+);
+
+// 모달 닫기
+const closeModal = () => {
+  emit("close");
+};
+
+// 거래 등록
+const submitForm = async () => {
+  // 에러
+  if (form.value.amount <= 0) {
+    showToast("금액을 0보다 큰 값으로 입력하세요.");
+    return;
+  }
+
+  // payload
+  const transaction = {
+    type: form.value.type,
+    date: form.value.date,
+    category: form.value.category,
+    amount: form.value.amount,
+    content: form.value.content,
+  };
+
+  try {
+    await transactionStore.addTransaction(transaction);
+    showToast("거래가 성공적으로 등록되었습니다.");
+    closeModal();
+  } catch (error) {
+    console.error("[submitForm ERROR]", error);
+    showToast("거래 등록에 실패했습니다.");
+  }
+};
+
+// 토스트 메시지
+const showToast = (message) => {
+  const toast = document.createElement("div");
+  toast.textContent = message;
+  toast.style.position = "fixed";
+  toast.style.bottom = "20px";
+  toast.style.left = "50%";
+  toast.style.transform = "translateX(-50%)";
+  toast.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+  toast.style.color = "#fff";
+  toast.style.padding = "10px 20px";
+  toast.style.borderRadius = "8px";
+  toast.style.zIndex = 9999;
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    document.body.removeChild(toast);
+  }, 2000);
 };
 </script>
 

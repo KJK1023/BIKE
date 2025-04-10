@@ -31,96 +31,89 @@
   </div>
 </template>
 
-<script>
-import { computed, onMounted, ref, watch } from 'vue';
-import TransactionListItem from './TransactionListItem.vue';
-import { useTransactionStore } from '@/stores/transaction-store';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+<script setup>
+import { computed, onMounted, ref, watch } from "vue";
+import TransactionListItem from "./TransactionListItem.vue";
+import { useTransactionStore } from "@/stores/transaction-store";
 
-export default {
-  name: 'TransactionList',
-  components: {
-    TransactionListItem
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
+// Props & Emits
+const props = defineProps({
+  currentPage: {
+    type: Number,
+    default: 1,
   },
-  props: {
-    currentPage: {
-      type: Number,
-      default: 1
-    },
-    itemsPerPage: {
-      type: Number,
-      default: 10
-    },
-    isCompactView: {
-      type: Boolean,
-      default: false
-    },
-    compactItemCount: {
-      type: Number,
-      default: 3
-    }
+  itemsPerPage: {
+    type: Number,
+    default: 10,
   },
-  emits: ['edit-transaction', 'delete-transaction', 'update:totalItems'],
-  setup(props, { emit }) {
-    const transactionStore = useTransactionStore();
-    const filteredTransactions = ref([]);
+  isCompactView: {
+    type: Boolean,
+    default: false,
+  },
+  compactItemCount: {
+    type: Number,
+    default: 3,
+  },
+});
 
-    onMounted(async () => {
-      await transactionStore.fetchTransaction();
-      filteredTransactions.value = [...transactionStore.transactionInfo];
-    });
+const emit = defineEmits([
+  "edit-transaction",
+  "delete-transaction",
+  "update:totalItems",
+]);
 
-    const sortedFilteredTransactions = computed(() => {
-      return filteredTransactions.value.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
-    });
+const transactionStore = useTransactionStore();
+const filteredTransactions = computed(() => transactionStore.transactionInfo);
 
-    const displayedTransactions = computed(() => {
-      if (props.isCompactView) {
-        return sortedFilteredTransactions.value.slice(0, props.compactItemCount);
-      }
-      const start = (props.currentPage - 1) * props.itemsPerPage;
-      const end = start + props.itemsPerPage;
-      return sortedFilteredTransactions.value.slice(start, end);
-    });
+onMounted(async () => {
+  await transactionStore.fetchTransaction();
+});
 
-    const totalItems = computed(() => {
-      return filteredTransactions.value.length;
-    });
+const sortedFilteredTransactions = computed(() => {
+  return filteredTransactions.value
+    .slice()
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+});
 
-    watch(totalItems, (value) => {
-      emit('update:totalItems', value);
-    }, { immediate: true });
-
-    const editTransaction = (transactionData) => {
-      emit('edit-transaction', transactionData);
-    };
-
-    const deleteTransaction = (transactionData) => {
-      emit('delete-transaction', transactionData);
-    };
-
-    const handleFilterTransactions = (newFilteredTransactions) => {
-      filteredTransactions.value = newFilteredTransactions;
-    };
-
-    const getAllTransactions = () => {
-      return transactionStore.transactionInfo;
-    };
-
-    return {
-      transactionStore,
-      filteredTransactions,
-      sortedFilteredTransactions,
-      displayedTransactions,
-      totalItems,
-      editTransaction,
-      deleteTransaction,
-      handleFilterTransactions,
-      getAllTransactions
-    };
+// 현재 보여줄 거래 항목
+const displayedTransactions = computed(() => {
+  if (props.isCompactView) {
+    return sortedFilteredTransactions.value.slice(0, props.compactItemCount);
   }
+  const start = (props.currentPage - 1) * props.itemsPerPage;
+  const end = start + props.itemsPerPage;
+  return sortedFilteredTransactions.value.slice(start, end);
+});
+
+const totalItems = computed(() => filteredTransactions.value.length);
+
+watch(
+  totalItems,
+  (value) => {
+    emit("update:totalItems", value);
+  },
+  { immediate: true }
+);
+
+// 거래 수정/삭제 emit
+const editTransaction = (transactionData) => {
+  emit("edit-transaction", transactionData);
 };
+
+const deleteTransaction = (transactionData) => {
+  emit("delete-transaction", transactionData);
+};
+
+// 외부에서 필터링된 데이터 수신
+const handleFilterTransactions = (newFilteredTransactions) => {
+  filteredTransactions.value = newFilteredTransactions;
+};
+
+// 전체 거래 가져오기
+const getAllTransactions = () => transactionStore.transactionInfo;
 </script>
 
 <style scoped>

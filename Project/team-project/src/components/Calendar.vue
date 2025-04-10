@@ -85,8 +85,11 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+.calendar-wrapper {
+  width: 70%;
+}
 :deep(.vc-container) {
-  width: 790px;
+  width: 100%;
   height: 680px;
   border-radius: 8px;
   padding: 20px;

@@ -3,11 +3,10 @@ import LineGraph from "../components/LineGraph.vue";
 import CircleGraph from "../components/CircleGraph.vue";
 import WeeklyTransaction from "../components/WeeklyTransaction.vue";
 import TransactionList from "../components/TransactionList.vue";
-import PiniaTest from "@/components/PiniaTest.vue";
 </script>
 <template>
-  <div style="display: flex; flex-direction: column; gap: 20px">
-    <div style="display: flex">
+  <div style="display: flex; flex-direction: column; gap: 20px; width: 100%">
+    <div style="display: flex; height: fit-content">
       <LineGraph />
       <CircleGraph />
     </div>
@@ -21,9 +20,6 @@ import PiniaTest from "@/components/PiniaTest.vue";
         </div>
       </div>
       <TransactionList :isCompactView="true" />
-    </div>
-    <div>
-      <PiniaTest />
     </div>
   </div>
 </template>

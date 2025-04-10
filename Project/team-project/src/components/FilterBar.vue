@@ -100,10 +100,11 @@
 <script>
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { useTransactionStore } from '@/stores/transaction-store';
 
 export default {
   name: 'TransactionFilterBar',
-  emits: ['filter-transactions', 'filters-applied'], // filters-applied 이벤트 추가
+  emits: ['filter-transactions', 'filters-applied'],
 
   data() {
     return {
@@ -112,7 +113,8 @@ export default {
       selectedCategory: '전체',
       showDatePicker: false,
       startDate: this.formatDateForInput(new Date()),
-      endDate: this.formatDateForInput(new Date())
+      endDate: this.formatDateForInput(new Date()),
+      transactionStore: useTransactionStore() // Pinia store 직접 사용
     };
   },
 
@@ -209,7 +211,8 @@ export default {
     },
 
     filterTransactions() {
-      const transactions = this.$root.$data.transaction || []; // "transaction" 배열 사용
+      // Pinia store에서 직접 데이터 가져오기
+      const transactions = this.transactionStore.transactionInfo || [];
       console.log('FilterBar: 필터링 시작, 전체 데이터:', transactions);
 
       const dateFilter = (transaction) => {
@@ -283,7 +286,7 @@ export default {
 
       console.log('FilterBar: 필터링 완료, 결과:', filteredTransactions);
       this.$emit('filter-transactions', filteredTransactions);
-      this.$emit('filters-applied', { // filters-applied 이벤트 발생
+      this.$emit('filters-applied', {
         period: this.selectedPeriod,
         type: this.selectedType === '전체' ? null : this.selectedType,
         category: this.selectedCategory === '전체' ? null : this.selectedCategory,
@@ -310,7 +313,11 @@ export default {
   },
 
   created() {
-    this.filterTransactions();
+    // 데이터 로드가 완료된 후 필터링 실행
+    setTimeout(() => {
+      this.filterTransactions();
+    }, 500); // 500ms 지연 - 데이터 로딩을 기다리기 위함
+    
     document.addEventListener('click', this.handleOutsideClick);
   },
 

@@ -123,6 +123,11 @@ export default {
       // emit('update:currentPage', 1); // 필요하다면 페이지를 1로 초기화
     };
 
+    // Pinia store에서 전체 거래 데이터를 가져오는 getter 추가
+    const getAllTransactions = () => {
+      return transactionStore.transactionInfo;
+    };
+
     return {
       transactionStore,
       filteredTransactions,
@@ -131,7 +136,8 @@ export default {
       totalItems,
       editTransaction,
       deleteTransaction,
-      handleFilterTransactions
+      handleFilterTransactions,
+      getAllTransactions // 추가된 메서드: 전체 거래 데이터 반환
     };
   }
 };

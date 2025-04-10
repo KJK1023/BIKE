@@ -38,7 +38,6 @@ export const useTransactionStore = defineStore("transaction", () => {
       console.error("거래 추가에 실패했습니다.", error);
     }
   };
-
   return {
     transactionInfo,
     fetchTransaction,

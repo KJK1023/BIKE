@@ -193,7 +193,7 @@
       "type": "income",
       "date": "2025-06-25",
       "category": "transportation",
-      "amount": 2.2222222222222222e+21,
+      "amount": 2.2222222222222222e21,
       "memo": ""
     },
     {
@@ -285,6 +285,24 @@
       "category": "culture",
       "amount": 333,
       "memo": ""
+    },
+    {
+      "id": "14dc",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2028-06-30",
+      "category": "allowance",
+      "amount": 1111,
+      "memo": ""
+    },
+    {
+      "id": "3c1b",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2028-09-10",
+      "category": "allowance",
+      "amount": 1111,
+      "memo": "3"
     }
   ]
 }

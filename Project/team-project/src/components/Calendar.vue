@@ -46,7 +46,7 @@ const selectDate = (dateStr) => {
 };
 
 const isHighlighted = (dateStr) => {
-  return selectedDate.value === dateStr;
+  return calendarStore.selectedDate === dateStr;
 };
 
 //데이터 가져오기

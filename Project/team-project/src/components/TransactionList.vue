@@ -66,14 +66,15 @@ const emit = defineEmits([
 ]);
 
 const transactionStore = useTransactionStore();
-const filteredTransactions = computed(() => transactionStore.transactionInfo);
-
+const filteredTransactions_2 = computed(() => transactionStore.transactionInfo);
+const filteredTransactions = ref([]);
 onMounted(async () => {
   await transactionStore.fetchTransaction();
+  filteredTransactions.value = [...transactionStore.transactionInfo];
 });
 
 const sortedFilteredTransactions = computed(() => {
-  return filteredTransactions.value
+  return [...filteredTransactions.value]
     .slice()
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 });
@@ -111,9 +112,12 @@ const deleteTransaction = (transactionData) => {
 const handleFilterTransactions = (newFilteredTransactions) => {
   filteredTransactions.value = newFilteredTransactions;
 };
-
 // 전체 거래 가져오기
 const getAllTransactions = () => transactionStore.transactionInfo;
+
+defineExpose({
+  handleFilterTransactions,
+});
 </script>
 
 <style scoped>

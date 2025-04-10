@@ -32,33 +32,39 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Profile',
-  data() {
-    return {
-      name: '김민수', // 초기값 설정
-      email: 'minsu.kim@example.com', // 초기값 설정
-      phone: '010-1234-5678', // 초기값 설정
-    };
-  },
-  methods: {
-    // 이미지 변경 버튼 클릭 시 동작
-    onChangeImage() {
-      // 이미지 변경 로직 구현
-      console.log('이미지 변경 버튼 클릭');
-    },
-    // 비밀번호 변경 버튼 클릭 시 동작
-    onChangePassword() {
-      // 비밀번호 변경 로직 구현 (모달 또는 페이지 이동)
-      console.log('비밀번호 변경 버튼 클릭');
-    },
-    // 변경사항 저장 버튼 클릭 시 동작
-    onSaveChanges() {
-      // 변경된 프로필 정보 저장 로직 구현
-      console.log('변경사항 저장:', this.name, this.email, this.phone);
-    },
-  },
+<script setup>
+import { ref, onMounted } from "vue";
+import { useUserStore } from "@/stores/user-store";
+const userStore = useUserStore();
+
+const name = ref("");
+const email = ref("");
+const phone = ref("");
+
+onMounted(async () => {
+  await userStore.fetchUser();
+
+  console.log(userStore.userInfo);
+  const targetUser = userStore.userInfo[0];
+
+  if (targetUser) {
+    name.value = targetUser.name;
+    email.value = targetUser.email;
+    phone.value = targetUser.tel;
+  } else {
+    console.warn("id가 'aaa'인 유저를 찾을 수 없습니다.");
+  }
+});
+const onChangeImage = () => {
+  console.log("이미지 변경 버튼 클릭");
+};
+
+const onChangePassword = () => {
+  console.log("비밀번호 변경 버튼 클릭");
+};
+
+const onSaveChanges = () => {
+  console.log("변경사항 저장:", name.value, email.value, phone.value);
 };
 </script>
 
@@ -130,9 +136,9 @@ h3 {
   margin-bottom: 5px;
 }
 
-.form-group input[type='text'],
-.form-group input[type='email'],
-.form-group input[type='tel'] {
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;

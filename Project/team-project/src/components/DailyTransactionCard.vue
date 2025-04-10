@@ -1,8 +1,8 @@
 <template>
   <div class="card-box">
-    <h1 id="title-text">거래 내역</h1>
-    <ul>
-      <li v-for="(day, index) in transactionData">
+    <h1 id="title-text">거래 내역 ({{ calendarStore.selectedDate }})</h1>
+    <ul v-if="transactionData.length > 0">
+      <li v-for="(day, index) in transactionData" :key="index">
         <div class="text-wrapper">
           <p id="semititle-text">{{ translateCategory(day.category) }}</p>
           <p id="date-text">{{ day.date }}</p>
@@ -15,16 +15,23 @@
         </p>
       </li>
     </ul>
+    <p v-else class="no-data-text">거래 내역 없음</p>
   </div>
 </template>
 
 <script setup>
+import { computed } from "vue";
+import { useTransactionStore } from "@/stores/transaction-store";
 import { translateCategory } from "../utils/translate-category";
-const transactionData = [
-  { category: "salary", amount: 10000000, type: "income", date: "2024-05-01" },
-  { category: "etc", amount: 4000, type: "income", date: "2024-05-01" },
-  { category: "food", amount: 9000, type: "expense", date: "2024-05-01" },
-];
+import { useCalendarStore } from "@/stores/calendar-store";
+
+const calendarStore = useCalendarStore();
+const selectedDate = computed(() => calendarStore.selectedDate);
+const transactionStore = useTransactionStore();
+
+const transactionData = computed(() =>
+  transactionStore.transactionInfo.filter((t) => t.date === selectedDate.value)
+);
 </script>
 
 <style scoped>
@@ -81,5 +88,12 @@ li {
   font-size: 16px;
   color: #dc2626;
   font-weight: 600;
+}
+.no-data-text {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #9ca3af;
+  padding: 40px 0;
 }
 </style>

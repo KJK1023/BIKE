@@ -4,25 +4,29 @@
       "id": "aaa",
       "pw": "bbb",
       "name": "human1",
-      "email": "human1@gmail.com"
+      "email": "human1@gmail.com",
+      "tel": "010-1234-5678"
     },
     {
       "id": "ccc",
       "pw": "ddd",
       "name": "human2",
-      "email": "human2@gmail.com"
+      "email": "human2@gmail.com",
+      "tel": "010-1234-5678"
     },
     {
       "id": "eee",
       "pw": "fff",
       "name": "human3",
-      "email": "human3@gmail.com"
+      "email": "human3@gmail.com",
+      "tel": "010-1234-5678"
     },
     {
       "id": "ggg",
       "pw": "hhh",
       "name": "human4",
-      "email": "human4@gmail.com"
+      "email": "human4@gmail.com",
+      "tel": "010-1234-5678"
     }
   ],
   "transaction": [
@@ -153,6 +157,86 @@
       "category": "culture",
       "amount": 100000,
       "memo": "문화생활"
+    },
+    {
+      "id": "aaa",
+      "type": "income",
+      "date": "2025-06-20",
+      "category": "salary",
+      "amount": 130000,
+      "memo": "보너스 받음"
+    },
+    {
+      "id": "aaa",
+      "type": "expense",
+      "date": "2025-06-21",
+      "category": "food",
+      "amount": 18000,
+      "memo": "라멘 먹음"
+    },
+    {
+      "id": "aaa",
+      "type": "expense",
+      "date": "2025-06-22",
+      "category": "shopping",
+      "amount": 75000,
+      "memo": "가방 샀다"
+    },
+    {
+      "id": "aaa",
+      "type": "expense",
+      "date": "2025-06-22",
+      "category": "transportation",
+      "amount": 5600,
+      "memo": "지하철 탔다"
+    },
+    {
+      "id": "aaa",
+      "type": "income",
+      "date": "2025-06-23",
+      "category": "allowance",
+      "amount": 20000,
+      "memo": "부모님이 주심"
+    },
+    {
+      "id": "aaa",
+      "type": "expense",
+      "date": "2025-06-23",
+      "category": "team_dinner",
+      "amount": 95000,
+      "memo": "팀 회식"
+    },
+    {
+      "id": "aaa",
+      "type": "expense",
+      "date": "2025-06-24",
+      "category": "culture",
+      "amount": 15000,
+      "memo": "영화 관람"
+    },
+    {
+      "id": "aaa",
+      "type": "expense",
+      "date": "2025-06-25",
+      "category": "etc",
+      "amount": 3400,
+      "memo": "문구류 구매"
+    },
+    {
+      "id": "aaa",
+      "type": "income",
+      "date": "2025-06-26",
+      "category": "etc",
+      "amount": 7000,
+      "memo": "중고거래 수입"
+    },
+    {
+      "id": "aaa",
+      "type": "expense",
+      "date": "2025-06-26",
+      "category": "food",
+      "amount": 12000,
+      "memo": "점심값"
     }
   ]
 }

@@ -3,7 +3,7 @@
     <td class="text-secondary">{{ transaction.date }}</td>
     <td>
       <span :class="['category-badge-rounded', transaction.type === 'income' ? 'text-success-category' : 'text-danger-category']">
-        {{ transaction.category }}
+        {{ translateCategory(transaction.category) }}
       </span>
     </td>
     <td class="text-secondary">{{ transaction.description }}</td>
@@ -24,6 +24,7 @@
 
 <script>
 import { useTransactionStore } from '@/stores/transaction-store';
+import { translateCategory } from '@/utils/translate-category'; // translateCategory 함수 import
 
 export default {
   name: 'TransactionListItem',
@@ -36,12 +37,12 @@ export default {
   setup() {
     // Pinia store를 사용하기 위해 setup() 함수 내에서 호출
     const transactionStore = useTransactionStore();
-    
     return {
       transactionStore
     };
   },
   methods: {
+    translateCategory, // translateCategory 메서드 추가
     formatAmount(amount, type) {
       const formattedAmount = amount.toLocaleString();
       return type === 'income' ? `+${formattedAmount}원` : `-${formattedAmount}원`;

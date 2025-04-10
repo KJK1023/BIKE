@@ -5,7 +5,6 @@ import WeeklyTransaction from "../components/WeeklyTransaction.vue";
 import TransactionList from "../components/TransactionList.vue";
 import PiniaTest from "@/components/PiniaTest.vue";
 </script>
-
 <template>
   <div style="display: flex; flex-direction: column; gap: 20px">
     <div style="display: flex">
@@ -21,14 +20,13 @@ import PiniaTest from "@/components/PiniaTest.vue";
           <i id="chevron-right" class="fa-solid fa-chevron-right"></i>
         </div>
       </div>
-      <TransactionList />
+      <TransactionList :isCompactView="true" />
     </div>
     <div>
       <PiniaTest />
     </div>
   </div>
 </template>
-
 <style scoped>
 .title-text {
   font-size: 18px;

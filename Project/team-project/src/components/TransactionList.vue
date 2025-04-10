@@ -72,6 +72,8 @@ onMounted(async () => {
   await transactionStore.fetchTransaction();
 });
 
+console.log("slice:", filteredTransactions.value.slice());
+
 const sortedFilteredTransactions = computed(() => {
   return filteredTransactions.value
     .slice()

@@ -110,7 +110,7 @@
                 <button
                   type="button"
                   class="btn btn-custom-primary"
-                  @click="submitForm"
+                  @click="isEditing ? modifyForm() : submitForm()"
                 >
                   {{ isEditing ? "수정" : "등록" }}
                 </button>
@@ -138,6 +138,8 @@ const props = defineProps({
     default: null,
   },
 });
+
+console.log("inputform props", props);
 
 const emit = defineEmits(["close"]);
 
@@ -194,7 +196,7 @@ const submitForm = async () => {
     return;
   }
 
-  // payload
+  // form data
   const transaction = {
     type: form.value.type,
     date: form.value.date,
@@ -210,6 +212,32 @@ const submitForm = async () => {
   } catch (error) {
     console.error("[submitForm ERROR]", error);
     showToast("거래 등록에 실패했습니다.");
+  }
+};
+
+const modifyForm = async () => {
+  if (form.value.amount <= 0) {
+    showToast("금액을 0보다 큰 값으로 입력하세요.");
+    return;
+  }
+
+  // form data
+  const transaction = {
+    id: props.initialData.id,
+    type: form.value.type,
+    date: form.value.date,
+    category: form.value.category,
+    amount: form.value.amount,
+    content: form.value.content,
+  };
+
+  try {
+    await transactionStore.putTransaction(transaction);
+    showToast("거래가 성공적으로 수정되었습니다.");
+    closeModal();
+  } catch (error) {
+    console.error("[submitForm ERROR]", error);
+    showToast("거래 수정에 실패했습니다.");
   }
 };
 

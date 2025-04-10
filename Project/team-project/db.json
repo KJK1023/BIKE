@@ -5,32 +5,28 @@
       "pw": "bbb",
       "name": "human1",
       "email": "human1@gmail.com",
-      "tel": "010-1234-5678",
-      "id": "3626"
+      "tel": "010-1234-5678"
     },
     {
       "userId": "ccc",
       "pw": "ddd",
       "name": "human2",
       "email": "human2@gmail.com",
-      "tel": "010-1234-5678",
-      "id": "7add"
+      "tel": "010-1234-5678"
     },
     {
       "userId": "eee",
       "pw": "fff",
       "name": "human3",
       "email": "human3@gmail.com",
-      "tel": "010-1234-5678",
-      "id": "5cdf"
+      "tel": "010-1234-5678"
     },
     {
       "userId": "ggg",
       "pw": "hhh",
       "name": "human4",
       "email": "human4@gmail.com",
-      "tel": "010-1234-5678",
-      "id": "74ed"
+      "tel": "010-1234-5678"
     }
   ],
   "transaction": [
@@ -188,103 +184,22 @@
       "memo": "회식"
     },
     {
-      "id": "ef69",
+      "id": "0f61",
       "userId": "aaa",
-      "type": "income",
-      "date": "2025-06-25",
-      "category": "transportation",
-      "amount": 2.2222222222222222e+21,
-      "memo": ""
-    },
-    {
-      "id": "7e91",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2026-01-10",
-      "category": "salary",
-      "amount": 11111111111111,
-      "memo": "dd"
-    },
-    {
-      "id": "a1ff",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-04-10",
-      "category": "allowance",
-      "amount": 111111111,
-      "memo": ""
-    },
-    {
-      "id": "8702",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-04-10",
-      "category": "allowance",
-      "amount": 111111,
-      "memo": "ddd"
-    },
-    {
-      "id": "f43a",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-04-21",
-      "category": "allowance",
-      "amount": 22222222,
-      "memo": ""
-    },
-    {
-      "id": "d7c3",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-04-23",
-      "category": "team_dinner",
-      "amount": 2222222,
-      "memo": ""
-    },
-    {
-      "id": "4b83",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-08-13",
-      "category": "transportation",
-      "amount": 22222223123213,
-      "memo": ""
-    },
-    {
-      "id": "0e22",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2026-09-30",
+      "type": "expense",
+      "date": "2025-12-31",
       "category": "food",
-      "amount": 123213213213123220,
-      "memo": ""
+      "amount": 123243,
+      "memo": "aaaaaa"
     },
     {
-      "id": "bb17",
+      "id": "b2f3",
       "userId": "aaa",
-      "type": "income",
-      "date": "2027-03-29",
-      "category": "food",
-      "amount": 23123123,
-      "memo": ""
-    },
-    {
-      "id": "93b5",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-04-29",
-      "category": "shopping",
-      "amount": 333333,
-      "memo": ""
-    },
-    {
-      "id": "0788",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-04-29",
-      "category": "culture",
-      "amount": 333,
-      "memo": ""
+      "type": "expense",
+      "date": "2025-06-15",
+      "category": "transportation",
+      "amount": 120000,
+      "memo": "교통비"
     }
   ]
 }

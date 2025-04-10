@@ -92,6 +92,7 @@ export const postTransaction = async (transaction) => {
 export const putTransaction = async (transaction) => {
   try {
     const transactionData = {
+      id: transaction.id,
       userId: "aaa",
       type: transaction.type,
       date: transaction.date,

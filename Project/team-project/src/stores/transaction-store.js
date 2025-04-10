@@ -39,9 +39,22 @@ export const useTransactionStore = defineStore("transaction", () => {
     }
   };
 
+  const putTransaction = async (newTransaction) => {
+    try {
+      console.log("await 완료 : ", transactionInfo.value.length);
+      await userApi.putTransaction(newTransaction);
+
+      await fetchTransaction(); // 수정 후 거래목록 다시 불러오기
+      console.log("fetch 완료 : ", transactionInfo.value.length);
+    } catch (error) {
+      console.error("거래 수정에 실패했습니다.", error);
+    }
+  };
+
   return {
     transactionInfo,
     fetchTransaction,
     addTransaction,
+    putTransaction,
   };
 });

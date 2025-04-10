@@ -63,11 +63,14 @@
                 <label class="form-label fw-bold">카테고리</label>
                 <br />
                 <select v-model="form.category" class="form-select">
-                  <option value="급여">급여</option>
-                  <option value="용돈">용돈</option>
-                  <option value="식비">식비</option>
-                  <option value="교통비">교통비</option>
-                  <option value="기타">기타</option>
+                  <option value="salary\">급여</option>
+                  <option value="allowance">용돈</option>
+                  <option value="food">식비</option>
+                  <option value="transportation">교통비</option>
+                  <option value="team_dinner">회식</option>
+                  <option value="shopping">쇼핑</option>
+                  <option value="culture">문화생활</option>
+                  <option value="etc">기타</option>
                 </select>
               </div>
 
@@ -122,6 +125,8 @@
 </template>
 
 <script>
+import { postTransaction, getTransactionsByUserId } from '@/api/userAPI'; // userAPI.js에서 함수 가져오기
+
 export default {
   name: 'InputForm',
   props: {
@@ -159,7 +164,6 @@ export default {
       },
     },
   },
-
   data() {
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -168,7 +172,7 @@ export default {
     return {
       form: {
         type: 'income',
-        date: `${yyyy}-${mm}-${dd}`,
+        date: `${yyyy}-${mm}-${dd}`, // 백틱을 사용하여 템플릿 리터럴로 수정
         category: '급여',
         amount: 0,
         content: '',
@@ -179,31 +183,44 @@ export default {
     closeModal() {
       this.$emit('close');
     },
-    submitForm() {
+    // InputForm.vue에서 submitForm 함수 수정
+    async submitForm() {
       if (this.form.amount <= 0) {
         this.showToast('금액을 0보다 큰 값으로 입력하세요.');
         return;
       }
-      console.log('Form submit:', this.form);
-      this.closeModal();
-    },
-    showToast(message) {
-      const toast = document.createElement('div');
-      toast.textContent = message;
-      toast.style.position = 'fixed';
-      toast.style.bottom = '20px';
-      toast.style.left = '50%';
-      toast.style.transform = 'translateX(-50%)';
-      toast.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-      toast.style.color = '#fff';
-      toast.style.padding = '10px 20px';
-      toast.style.borderRadius = '8px';
-      toast.style.zIndex = 9999;
-      document.body.appendChild(toast);
 
-      setTimeout(() => {
-        document.body.removeChild(toast);
-      }, 2000);
+      // 거래 등록
+      const transaction = {
+        type: this.form.type,
+        date: this.form.date,
+        category: this.form.category,
+        amount: this.form.amount,
+        content: this.form.content, // 내용은 'memo'로 변환하여 서버로 보냄
+      };
+
+      try {
+        // 거래 데이터 db.json에 저장
+        const response = await postTransaction(transaction);
+
+        if (response) {
+          // 거래 등록 후 최신 거래 내역을 가져옴
+          const userId = 'aaa'; // 예시로 고정된 유저 ID
+          const transactions = await getTransactionsByUserId(userId);
+          console.log('Updated Transactions:', transactions);
+
+          this.showToast('거래가 성공적으로 등록되었습니다.');
+          this.closeModal();
+
+          // 부모 컴포넌트로 최신 거래 내역을 전달
+          this.$emit('update-transactions', transactions);
+        } else {
+          this.showToast('거래 등록에 실패했습니다.');
+        }
+      } catch (error) {
+        console.error('[submitForm ERROR]', error);
+        this.showToast('거래 등록에 실패했습니다.');
+      }
     },
     showToast(message) {
       const toast = document.createElement('div');

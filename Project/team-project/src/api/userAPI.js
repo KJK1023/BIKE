@@ -89,6 +89,7 @@ export const postTransaction = async (transaction) => {
     throw e;
   }
 };
+
 export const putTransaction = async (transaction) => {
   try {
     const transactionData = {
@@ -109,6 +110,16 @@ export const putTransaction = async (transaction) => {
     return response;
   } catch (e) {
     console.error("Error updating transaction", e);
+    throw e;
+  }
+};
+
+export const deleteTransaction = async (id) => {
+  try {
+    const response = await axios.delete(`/api/transaction/${id}`);
+    return response;
+  } catch (e) {
+    console.error("Error deleting transaction", e);
     throw e;
   }
 };

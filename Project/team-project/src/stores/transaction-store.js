@@ -51,10 +51,23 @@ export const useTransactionStore = defineStore("transaction", () => {
     }
   };
 
+  const deleteTransaction = async (newTransaction) => {
+    try {
+      console.log("await 완료 : ", transactionInfo.value.length);
+      await userApi.deleteTransaction(newTransaction);
+
+      await fetchTransaction();
+      console.log("fetch 완료 : ", transactionInfo.value.length);
+    } catch (error) {
+      console.error("거래 삭제에 실패했습니다.", error);
+    }
+  };
+
   return {
     transactionInfo,
     fetchTransaction,
     addTransaction,
     putTransaction,
+    deleteTransaction,
   };
 });

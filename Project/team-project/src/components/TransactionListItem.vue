@@ -37,7 +37,12 @@
       </button>
       <button
         class="btn btn-sm btn-link text-danger p-0"
-        @click="onDeleteTransaction"
+        @click="
+          () => {
+            console.log('click');
+            onDeleteTransaction(transaction.id);
+          }
+        "
       >
         <img
           src="@/assets/BUTTON.svg"
@@ -61,7 +66,9 @@ const props = defineProps({
   },
 });
 
-console.log("props", props.transaction);
+console.log(props.transaction);
+
+const transactionStore = useTransactionStore();
 
 const emit = defineEmits(["edit-transaction", "delete-transaction"]);
 
@@ -77,11 +84,11 @@ const onEditTransaction = () => {
   });
 };
 
-const onDeleteTransaction = () => {
-  emit("delete-transaction", {
-    type: props.transaction.type,
-    transaction: props.transaction,
-  });
+const onDeleteTransaction = (id) => {
+  const confirmed = window.confirm("정말로 삭제하시겠습니까?");
+  if (confirmed) {
+    transactionStore.deleteTransaction(id);
+  }
 };
 </script>
 

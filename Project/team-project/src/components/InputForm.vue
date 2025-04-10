@@ -63,7 +63,7 @@
                 <label class="form-label fw-bold">카테고리</label>
                 <br />
                 <select v-model="form.category" class="form-select">
-                  <option value="salary\">급여</option>
+                  <option value="salary">급여</option>
                   <option value="allowance">용돈</option>
                   <option value="food">식비</option>
                   <option value="transportation">교통비</option>
@@ -88,7 +88,7 @@
 
               <!-- 내용 -->
               <div class="mb-3">
-                <label class="form-label fw-bold">내용</label>
+                <label class="form-label fw-bold">메모</label>
                 <br />
                 <input
                   type="text"
@@ -167,18 +167,21 @@ export default {
   data() {
     const today = new Date();
     const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
     const dd = String(today.getDate()).padStart(2, '0');
+    const formattedToday = `${yyyy}-${mm}-${dd}`;
+
     return {
       form: {
         type: 'income',
-        date: `${yyyy}-${mm}-${dd}`, // 백틱을 사용하여 템플릿 리터럴로 수정
-        category: '급여',
-        amount: 0,
+        date: formattedToday, // 오늘 날짜를 기본값으로
+        category: '',
+        amount: '',
         content: '',
       },
     };
   },
+
   methods: {
     closeModal() {
       this.$emit('close');

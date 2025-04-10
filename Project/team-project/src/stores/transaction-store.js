@@ -11,7 +11,7 @@ export const useTransactionStore = defineStore('transaction', () => {
   const fetchTransaction = async () => {
     try {
       const users = await userApi.getCurrentUser();
-      const userId = users[0]?.id;
+      const userId = users[0]?.userId;
 
       if (!userId) {
         throw new Error('사용자 정보에 id가 없습니다.');

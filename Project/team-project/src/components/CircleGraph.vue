@@ -25,7 +25,6 @@ const sortedData = ref([]);
 const labels = ref([]);
 const data = ref([]);
 const colors = ref([]);
-
 const transactionStore = useTransactionStore();
 
 onMounted(async () => {

@@ -36,7 +36,7 @@
                       value="income"
                       v-model="form.type"
                     />
-                    <label class="form-check-label" for="income">수입</label>
+                    <label class="form-check-label" for="income">수익</label>
                   </div>
                   <div class="form-check form-check-inline">
                     <input

@@ -59,7 +59,7 @@ onMounted(async () => {
 
   const map = {};
 
-  // 날짜별로 수입/지출 정리
+  // 날짜별로 수익/지출 정리
   transactions.forEach((item) => {
     const date = formatDate(new Date(item.date));
     // console.log(`날짜 데이터 : ${date}`);

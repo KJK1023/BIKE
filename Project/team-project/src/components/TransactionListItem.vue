@@ -37,12 +37,7 @@
       </button>
       <button
         class="btn btn-sm btn-link text-danger p-0"
-        @click="
-          () => {
-            console.log('click');
-            onDeleteTransaction(transaction.id);
-          }
-        "
+        @click="onDeleteTransaction"
       >
         <img
           src="@/assets/BUTTON.svg"
@@ -54,41 +49,48 @@
   </tr>
 </template>
 
-<script setup>
+<script>
 import { useTransactionStore } from "@/stores/transaction-store";
-import { translateCategory } from "@/utils/translate-category";
-import { toRefs } from "vue";
+import { translateCategory } from "@/utils/translate-category"; // translateCategory 함수 import
 
-const props = defineProps({
-  transaction: {
-    type: Object,
-    required: true,
+export default {
+  name: "TransactionListItem",
+  props: {
+    transaction: {
+      type: Object,
+      required: true,
+    },
   },
-});
-
-console.log(props.transaction);
-
-const transactionStore = useTransactionStore();
-
-const emit = defineEmits(["edit-transaction", "delete-transaction"]);
-
-const formatAmount = (amount, type) => {
-  const formattedAmount = amount.toLocaleString();
-  return type === "income" ? `+${formattedAmount}원` : `-${formattedAmount}원`;
-};
-
-const onEditTransaction = () => {
-  emit("edit-transaction", {
-    type: props.transaction.type,
-    transaction: props.transaction,
-  });
-};
-
-const onDeleteTransaction = (id) => {
-  const confirmed = window.confirm("정말로 삭제하시겠습니까?");
-  if (confirmed) {
-    transactionStore.deleteTransaction(id);
-  }
+  setup() {
+    // Pinia store를 사용하기 위해 setup() 함수 내에서 호출
+    const transactionStore = useTransactionStore();
+    return {
+      transactionStore,
+    };
+  },
+  methods: {
+    translateCategory, // translateCategory 메서드 추가
+    formatAmount(amount, type) {
+      const formattedAmount = amount.toLocaleString();
+      return type === "income"
+        ? `+${formattedAmount}원`
+        : `-${formattedAmount}원`;
+    },
+    onEditTransaction() {
+      // Pinia store의 데이터를 업데이트하고 싶다면 여기서 사용할 수 있습니다
+      this.$emit("edit-transaction", {
+        type: this.transaction.type,
+        transaction: this.transaction,
+      });
+    },
+    onDeleteTransaction() {
+      // Pinia store의 데이터를 업데이트하고 싶다면 여기서 사용할 수 있습니다
+      this.$emit("delete-transaction", {
+        type: this.transaction.type,
+        transaction: this.transaction,
+      });
+    },
+  },
 };
 </script>
 

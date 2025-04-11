@@ -148,87 +148,6 @@
       "memo": "회식"
     },
     {
-      "id": "ef69",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-06-25",
-      "category": "transportation",
-      "amount": 2.2222222222222222e21,
-      "memo": ""
-    },
-    {
-      "id": "7e91",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2026-01-10",
-      "category": "salary",
-      "amount": 11111111111111,
-      "memo": "dd"
-    },
-    {
-      "id": "a1ff",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-04-10",
-      "category": "allowance",
-      "amount": 111111111,
-      "memo": ""
-    },
-    {
-      "id": "8702",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-04-10",
-      "category": "allowance",
-      "amount": 111111,
-      "memo": "ddd"
-    },
-    {
-      "id": "f43a",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-04-21",
-      "category": "allowance",
-      "amount": 22222222,
-      "memo": ""
-    },
-    {
-      "id": "d7c3",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-04-23",
-      "category": "team_dinner",
-      "amount": 2222222,
-      "memo": ""
-    },
-    {
-      "id": "4b83",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2025-08-13",
-      "category": "transportation",
-      "amount": 22222223123213,
-      "memo": ""
-    },
-    {
-      "id": "0e22",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2026-09-30",
-      "category": "food",
-      "amount": 123213213213123220,
-      "memo": ""
-    },
-    {
-      "id": "bb17",
-      "userId": "aaa",
-      "type": "income",
-      "date": "2027-03-29",
-      "category": "food",
-      "amount": 23123123,
-      "memo": ""
-    },
-    {
       "id": "93b5",
       "userId": "aaa",
       "type": "income",
@@ -247,22 +166,2011 @@
       "memo": ""
     },
     {
-      "id": "14dc",
+      "id": "20251101_income",
       "userId": "aaa",
       "type": "income",
-      "date": "2028-06-30",
-      "category": "allowance",
-      "amount": 1111,
-      "memo": ""
+      "date": "2025-11-01",
+      "category": "salary",
+      "amount": 160000,
+      "memo": "November salary"
     },
     {
-      "id": "3c1b",
+      "id": "20251102_income",
       "userId": "aaa",
       "type": "income",
-      "date": "2028-09-10",
+      "date": "2025-11-02",
       "category": "allowance",
-      "amount": 1111,
-      "memo": "3"
+      "amount": 30000,
+      "memo": "Family support"
+    },
+    {
+      "id": "20251103_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-03",
+      "category": "salary",
+      "amount": 80000,
+      "memo": "Part-time job"
+    },
+    {
+      "id": "20251104_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-04",
+      "category": "allowance",
+      "amount": 25000,
+      "memo": "Gift from friend"
+    },
+    {
+      "id": "20251105_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-05",
+      "category": "culture",
+      "amount": 10000,
+      "memo": "Event prize"
+    },
+    {
+      "id": "20251106_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-06",
+      "category": "transportation",
+      "amount": 20000,
+      "memo": "Transportation support"
+    },
+    {
+      "id": "20251107_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-07",
+      "category": "team_dinner",
+      "amount": 30000,
+      "memo": "Team dinner refund"
+    },
+    {
+      "id": "20251108_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-08",
+      "category": "shopping",
+      "amount": 15000,
+      "memo": "Refund for return"
+    },
+    {
+      "id": "20251109_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-09",
+      "category": "etc",
+      "amount": 12000,
+      "memo": "Online survey"
+    },
+    {
+      "id": "20251110_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-10",
+      "category": "salary",
+      "amount": 170000,
+      "memo": "Bonus"
+    },
+    {
+      "id": "20251112_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-12",
+      "category": "culture",
+      "amount": 22000,
+      "memo": "Performance fee"
+    },
+    {
+      "id": "20251114_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-14",
+      "category": "shopping",
+      "amount": 19000,
+      "memo": "Cashback"
+    },
+    {
+      "id": "20251115_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-15",
+      "category": "salary",
+      "amount": 165000,
+      "memo": "Second job salary"
+    },
+    {
+      "id": "20251117_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-17",
+      "category": "allowance",
+      "amount": 12000,
+      "memo": "Pocket money"
+    },
+    {
+      "id": "20251118_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-18",
+      "category": "etc",
+      "amount": 9000,
+      "memo": "Unknown deposit"
+    },
+    {
+      "id": "20251120_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-20",
+      "category": "team_dinner",
+      "amount": 27000,
+      "memo": "Split bill refund"
+    },
+    {
+      "id": "20251122_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-22",
+      "category": "transportation",
+      "amount": 15000,
+      "memo": "Commute allowance"
+    },
+    {
+      "id": "20251125_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-25",
+      "category": "culture",
+      "amount": 17000,
+      "memo": "Content sales"
+    },
+    {
+      "id": "20251127_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-27",
+      "category": "shopping",
+      "amount": 22000,
+      "memo": "Promotion cashback"
+    },
+    {
+      "id": "20251130_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-11-30",
+      "category": "etc",
+      "amount": 10000,
+      "memo": "App event"
+    },
+    {
+      "id": "20251201_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-01",
+      "category": "salary",
+      "amount": 170000,
+      "memo": "December salary"
+    },
+    {
+      "id": "20251202_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-02",
+      "category": "allowance",
+      "amount": 25000,
+      "memo": "Family gift"
+    },
+    {
+      "id": "20251203_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-03",
+      "category": "salary",
+      "amount": 50000,
+      "memo": "Part-time pay"
+    },
+    {
+      "id": "20251204_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-04",
+      "category": "shopping",
+      "amount": 10000,
+      "memo": "Return cashback"
+    },
+    {
+      "id": "20251205_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-05",
+      "category": "culture",
+      "amount": 8000,
+      "memo": "Survey reward"
+    },
+    {
+      "id": "20251206_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-06",
+      "category": "transportation",
+      "amount": 15000,
+      "memo": "Commute refund"
+    },
+    {
+      "id": "20251207_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-07",
+      "category": "team_dinner",
+      "amount": 27000,
+      "memo": "Team dinner split"
+    },
+    {
+      "id": "20251208_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-08",
+      "category": "etc",
+      "amount": 11000,
+      "memo": "Unknown deposit"
+    },
+    {
+      "id": "20251210_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-10",
+      "category": "salary",
+      "amount": 165000,
+      "memo": "Freelance project"
+    },
+    {
+      "id": "20251212_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-12",
+      "category": "shopping",
+      "amount": 14000,
+      "memo": "Product return"
+    },
+    {
+      "id": "20251213_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-13",
+      "category": "allowance",
+      "amount": 18000,
+      "memo": "Uncle's gift"
+    },
+    {
+      "id": "20251215_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-15",
+      "category": "culture",
+      "amount": 20000,
+      "memo": "Content writing"
+    },
+    {
+      "id": "20251217_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-17",
+      "category": "transportation",
+      "amount": 10000,
+      "memo": "Mileage reward"
+    },
+    {
+      "id": "20251218_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-18",
+      "category": "team_dinner",
+      "amount": 25000,
+      "memo": "Dinner compensation"
+    },
+    {
+      "id": "20251220_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-20",
+      "category": "etc",
+      "amount": 12000,
+      "memo": "Random refund"
+    },
+    {
+      "id": "20251222_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-22",
+      "category": "salary",
+      "amount": 160000,
+      "memo": "End of month pay"
+    },
+    {
+      "id": "20251224_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-24",
+      "category": "allowance",
+      "amount": 22000,
+      "memo": "Christmas gift"
+    },
+    {
+      "id": "20251226_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-26",
+      "category": "culture",
+      "amount": 13000,
+      "memo": "Year-end survey"
+    },
+    {
+      "id": "20251228_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-28",
+      "category": "shopping",
+      "amount": 18000,
+      "memo": "New year event cashback"
+    },
+    {
+      "id": "20251230_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-12-30",
+      "category": "etc",
+      "amount": 15000,
+      "memo": "App reward"
+    },
+    {
+      "id": "20250101_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-01-01",
+      "category": "allowance",
+      "amount": 40000,
+      "memo": "New Year's gift"
+    },
+    {
+      "id": "20250103_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-01-03",
+      "category": "salary",
+      "amount": 160000,
+      "memo": "January salary"
+    },
+    {
+      "id": "20250105_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-01-05",
+      "category": "shopping",
+      "amount": 12000,
+      "memo": "Return refund"
+    },
+    {
+      "id": "20250107_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-01-07",
+      "category": "transportation",
+      "amount": 10000,
+      "memo": "Commute support"
+    },
+    {
+      "id": "20250109_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-01-09",
+      "category": "culture",
+      "amount": 15000,
+      "memo": "Event prize"
+    },
+    {
+      "id": "20250112_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-01-12",
+      "category": "team_dinner",
+      "amount": 30000,
+      "memo": "Team dinner payback"
+    },
+    {
+      "id": "20250115_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-01-15",
+      "category": "etc",
+      "amount": 11000,
+      "memo": "Survey reward"
+    },
+    {
+      "id": "20250118_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-01-18",
+      "category": "salary",
+      "amount": 155000,
+      "memo": "Bonus pay"
+    },
+    {
+      "id": "20250122_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-01-22",
+      "category": "allowance",
+      "amount": 20000,
+      "memo": "Family support"
+    },
+    {
+      "id": "20250127_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-01-27",
+      "category": "etc",
+      "amount": 9000,
+      "memo": "App event bonus"
+    },
+    {
+      "id": "20250201_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-01",
+      "category": "salary",
+      "amount": 165000,
+      "memo": "February salary"
+    },
+    {
+      "id": "20250202_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-02",
+      "category": "allowance",
+      "amount": 30000,
+      "memo": "Lunar New Year gift"
+    },
+    {
+      "id": "20250203_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-03",
+      "category": "shopping",
+      "amount": 12000,
+      "memo": "Return cashback"
+    },
+    {
+      "id": "20250204_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-04",
+      "category": "transportation",
+      "amount": 15000,
+      "memo": "Commute refund"
+    },
+    {
+      "id": "20250205_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-05",
+      "category": "culture",
+      "amount": 18000,
+      "memo": "Music performance reward"
+    },
+    {
+      "id": "20250206_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-06",
+      "category": "team_dinner",
+      "amount": 25000,
+      "memo": "Dinner expense refund"
+    },
+    {
+      "id": "20250207_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-07",
+      "category": "etc",
+      "amount": 9000,
+      "memo": "Survey event"
+    },
+    {
+      "id": "20250208_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-08",
+      "category": "salary",
+      "amount": 150000,
+      "memo": "Side job pay"
+    },
+    {
+      "id": "20250209_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-09",
+      "category": "allowance",
+      "amount": 20000,
+      "memo": "Family allowance"
+    },
+    {
+      "id": "20250210_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-10",
+      "category": "shopping",
+      "amount": 11000,
+      "memo": "Clothing return"
+    },
+    {
+      "id": "20250211_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-11",
+      "category": "transportation",
+      "amount": 10000,
+      "memo": "Monthly pass refund"
+    },
+    {
+      "id": "20250212_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-12",
+      "category": "culture",
+      "amount": 13000,
+      "memo": "Streaming revenue"
+    },
+    {
+      "id": "20250213_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-13",
+      "category": "team_dinner",
+      "amount": 17000,
+      "memo": "Dinner bill split"
+    },
+    {
+      "id": "20250214_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-14",
+      "category": "etc",
+      "amount": 8000,
+      "memo": "App bonus"
+    },
+    {
+      "id": "20250216_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-16",
+      "category": "salary",
+      "amount": 175000,
+      "memo": "Freelance job"
+    },
+    {
+      "id": "20250218_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-18",
+      "category": "allowance",
+      "amount": 18000,
+      "memo": "Uncle's gift"
+    },
+    {
+      "id": "20250220_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-20",
+      "category": "shopping",
+      "amount": 15000,
+      "memo": "Online store cashback"
+    },
+    {
+      "id": "20250223_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-23",
+      "category": "transportation",
+      "amount": 14000,
+      "memo": "Card rebate"
+    },
+    {
+      "id": "20250225_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-25",
+      "category": "culture",
+      "amount": 20000,
+      "memo": "Photo contest prize"
+    },
+    {
+      "id": "20250228_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-02-28",
+      "category": "etc",
+      "amount": 10000,
+      "memo": "End of month bonus"
+    },
+    {
+      "id": "20250301_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-03-01",
+      "category": "salary",
+      "amount": 160000,
+      "memo": "March salary"
+    },
+    {
+      "id": "20250302_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-03-02",
+      "category": "allowance",
+      "amount": 20000,
+      "memo": "Monthly allowance"
+    },
+    {
+      "id": "20250304_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-03-04",
+      "category": "shopping",
+      "amount": 12000,
+      "memo": "Return cashback"
+    },
+    {
+      "id": "20250306_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-03-06",
+      "category": "etc",
+      "amount": 8000,
+      "memo": "App bonus"
+    },
+    {
+      "id": "20250308_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-03-08",
+      "category": "team_dinner",
+      "amount": 25000,
+      "memo": "Dinner refund"
+    },
+    {
+      "id": "20250310_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-03-10",
+      "category": "transportation",
+      "amount": 14000,
+      "memo": "Transit pass refund"
+    },
+    {
+      "id": "20250312_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-03-12",
+      "category": "culture",
+      "amount": 18000,
+      "memo": "Survey prize"
+    },
+    {
+      "id": "20250315_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-03-15",
+      "category": "salary",
+      "amount": 155000,
+      "memo": "Freelance salary"
+    },
+    {
+      "id": "20250318_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-03-18",
+      "category": "allowance",
+      "amount": 22000,
+      "memo": "Gift from aunt"
+    },
+    {
+      "id": "20250320_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-03-20",
+      "category": "shopping",
+      "amount": 10000,
+      "memo": "Online return refund"
+    },
+    {
+      "id": "20250323_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-03-23",
+      "category": "etc",
+      "amount": 9000,
+      "memo": "Bank reward"
+    },
+    {
+      "id": "20250327_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-03-27",
+      "category": "culture",
+      "amount": 16000,
+      "memo": "Photo contest"
+    },
+    {
+      "id": "20250330_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-03-30",
+      "category": "salary",
+      "amount": 168000,
+      "memo": "End of month payment"
+    },
+    {
+      "id": "20251101_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-01",
+      "category": "food",
+      "amount": 12000,
+      "memo": "Lunch at cafeteria"
+    },
+    {
+      "id": "20251102_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-02",
+      "category": "shopping",
+      "amount": 30000,
+      "memo": "Bought new shoes"
+    },
+    {
+      "id": "20251103_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-03",
+      "category": "transportation",
+      "amount": 2500,
+      "memo": "Subway fare"
+    },
+    {
+      "id": "20251104_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-04",
+      "category": "food",
+      "amount": 9000,
+      "memo": "Dinner with friends"
+    },
+    {
+      "id": "20251105_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-05",
+      "category": "etc",
+      "amount": 4000,
+      "memo": "Laundry service"
+    },
+    {
+      "id": "20251106_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-06",
+      "category": "food",
+      "amount": 15000,
+      "memo": "Korean BBQ"
+    },
+    {
+      "id": "20251107_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-07",
+      "category": "shopping",
+      "amount": 22000,
+      "memo": "Online shopping"
+    },
+    {
+      "id": "20251108_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-08",
+      "category": "transportation",
+      "amount": 3200,
+      "memo": "Bus ticket"
+    },
+    {
+      "id": "20251109_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-09",
+      "category": "food",
+      "amount": 10000,
+      "memo": "Convenience store"
+    },
+    {
+      "id": "20251110_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-10",
+      "category": "team_dinner",
+      "amount": 45000,
+      "memo": "Team gathering"
+    },
+    {
+      "id": "20251112_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-12",
+      "category": "etc",
+      "amount": 8000,
+      "memo": "Stationery"
+    },
+    {
+      "id": "20251114_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-14",
+      "category": "shopping",
+      "amount": 26000,
+      "memo": "Winter jacket"
+    },
+    {
+      "id": "20251116_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-16",
+      "category": "food",
+      "amount": 11000,
+      "memo": "Lunch set"
+    },
+    {
+      "id": "20251118_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-18",
+      "category": "transportation",
+      "amount": 3000,
+      "memo": "Taxi fare"
+    },
+    {
+      "id": "20251120_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-20",
+      "category": "team_dinner",
+      "amount": 50000,
+      "memo": "Company dinner"
+    },
+    {
+      "id": "20251122_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-22",
+      "category": "etc",
+      "amount": 6000,
+      "memo": "Household supplies"
+    },
+    {
+      "id": "20251124_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-24",
+      "category": "shopping",
+      "amount": 18000,
+      "memo": "Gift for friend"
+    },
+    {
+      "id": "20251126_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-26",
+      "category": "food",
+      "amount": 9500,
+      "memo": "Snack and coffee"
+    },
+    {
+      "id": "20251128_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-28",
+      "category": "etc",
+      "amount": 7000,
+      "memo": "Mobile app"
+    },
+    {
+      "id": "20251130_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-11-30",
+      "category": "food",
+      "amount": 13000,
+      "memo": "Weekend brunch"
+    },
+    {
+      "id": "20251201_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-01",
+      "category": "shopping",
+      "amount": 120000,
+      "memo": "Winter coat and boots"
+    },
+    {
+      "id": "20251202_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-02",
+      "category": "food",
+      "amount": 48000,
+      "memo": "Dinner with coworkers"
+    },
+    {
+      "id": "20251203_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-03",
+      "category": "transportation",
+      "amount": 25000,
+      "memo": "Monthly transit card"
+    },
+    {
+      "id": "20251205_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-05",
+      "category": "team_dinner",
+      "amount": 95000,
+      "memo": "Company year-end dinner"
+    },
+    {
+      "id": "20251206_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-06",
+      "category": "shopping",
+      "amount": 150000,
+      "memo": "Electronics - tablet"
+    },
+    {
+      "id": "20251207_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-07",
+      "category": "food",
+      "amount": 37000,
+      "memo": "Korean BBQ with friends"
+    },
+    {
+      "id": "20251208_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-08",
+      "category": "etc",
+      "amount": 60000,
+      "memo": "Utility bill"
+    },
+    {
+      "id": "20251210_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-10",
+      "category": "shopping",
+      "amount": 90000,
+      "memo": "Christmas gift shopping"
+    },
+    {
+      "id": "20251212_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-12",
+      "category": "transportation",
+      "amount": 34000,
+      "memo": "Taxi and train fares"
+    },
+    {
+      "id": "20251213_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-13",
+      "category": "food",
+      "amount": 55000,
+      "memo": "Sushi night"
+    },
+    {
+      "id": "20251215_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-15",
+      "category": "etc",
+      "amount": 50000,
+      "memo": "Donation to charity"
+    },
+    {
+      "id": "20251216_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-16",
+      "category": "team_dinner",
+      "amount": 88000,
+      "memo": "Team bonding dinner"
+    },
+    {
+      "id": "20251218_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-18",
+      "category": "shopping",
+      "amount": 135000,
+      "memo": "New monitor"
+    },
+    {
+      "id": "20251220_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-20",
+      "category": "food",
+      "amount": 60000,
+      "memo": "Dinner for family"
+    },
+    {
+      "id": "20251222_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-22",
+      "category": "etc",
+      "amount": 42000,
+      "memo": "Phone bill"
+    },
+    {
+      "id": "20251223_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-23",
+      "category": "transportation",
+      "amount": 27000,
+      "memo": "Gas refill"
+    },
+    {
+      "id": "20251225_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-25",
+      "category": "food",
+      "amount": 70000,
+      "memo": "Christmas dinner"
+    },
+    {
+      "id": "20251227_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-27",
+      "category": "shopping",
+      "amount": 98000,
+      "memo": "Year-end sale items"
+    },
+    {
+      "id": "20251229_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-29",
+      "category": "team_dinner",
+      "amount": 105000,
+      "memo": "Division year-end dinner"
+    },
+    {
+      "id": "20251231_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-12-31",
+      "category": "etc",
+      "amount": 30000,
+      "memo": "New Year's Eve party cost"
+    },
+    {
+      "id": "20250101_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-01",
+      "category": "food",
+      "amount": 23000,
+      "memo": "New Year's Day meal"
+    },
+    {
+      "id": "20250102_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-02",
+      "category": "transportation",
+      "amount": 3200,
+      "memo": "Subway fare"
+    },
+    {
+      "id": "20250103_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-03",
+      "category": "shopping",
+      "amount": 48000,
+      "memo": "Winter sale items"
+    },
+    {
+      "id": "20250104_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-04",
+      "category": "etc",
+      "amount": 11000,
+      "memo": "Bookstore purchase"
+    },
+    {
+      "id": "20250105_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-05",
+      "category": "food",
+      "amount": 17000,
+      "memo": "Lunch with friends"
+    },
+    {
+      "id": "20250106_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-06",
+      "category": "transportation",
+      "amount": 25000,
+      "memo": "Monthly bus pass"
+    },
+    {
+      "id": "20250107_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-07",
+      "category": "team_dinner",
+      "amount": 65000,
+      "memo": "Department dinner"
+    },
+    {
+      "id": "20250108_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-08",
+      "category": "shopping",
+      "amount": 30000,
+      "memo": "Shoes"
+    },
+    {
+      "id": "20250109_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-09",
+      "category": "etc",
+      "amount": 7000,
+      "memo": "Office supplies"
+    },
+    {
+      "id": "20250110_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-10",
+      "category": "food",
+      "amount": 22000,
+      "memo": "Dinner alone"
+    },
+    {
+      "id": "20250112_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-12",
+      "category": "team_dinner",
+      "amount": 72000,
+      "memo": "Project celebration dinner"
+    },
+    {
+      "id": "20250113_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-13",
+      "category": "transportation",
+      "amount": 3800,
+      "memo": "Taxi"
+    },
+    {
+      "id": "20250115_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-15",
+      "category": "shopping",
+      "amount": 88000,
+      "memo": "New bag"
+    },
+    {
+      "id": "20250117_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-17",
+      "category": "food",
+      "amount": 16000,
+      "memo": "Cafe and dessert"
+    },
+    {
+      "id": "20250119_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-19",
+      "category": "etc",
+      "amount": 14000,
+      "memo": "Haircut"
+    },
+    {
+      "id": "20250121_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-21",
+      "category": "transportation",
+      "amount": 3000,
+      "memo": "Bus fare"
+    },
+    {
+      "id": "20250123_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-23",
+      "category": "food",
+      "amount": 27000,
+      "memo": "Korean BBQ"
+    },
+    {
+      "id": "20250126_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-26",
+      "category": "shopping",
+      "amount": 41000,
+      "memo": "Home decor"
+    },
+    {
+      "id": "20250128_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-28",
+      "category": "etc",
+      "amount": 5000,
+      "memo": "Donation"
+    },
+    {
+      "id": "20250131_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-01-31",
+      "category": "food",
+      "amount": 31000,
+      "memo": "Fancy dinner"
+    },
+    {
+      "id": "20250201_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-01",
+      "category": "food",
+      "amount": 18000,
+      "memo": "Weekend lunch"
+    },
+    {
+      "id": "20250202_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-02",
+      "category": "transportation",
+      "amount": 3200,
+      "memo": "Bus fare"
+    },
+    {
+      "id": "20250203_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-03",
+      "category": "shopping",
+      "amount": 25000,
+      "memo": "T-shirt and pants"
+    },
+    {
+      "id": "20250204_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-04",
+      "category": "food",
+      "amount": 13000,
+      "memo": "Ramen and coffee"
+    },
+    {
+      "id": "20250205_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-05",
+      "category": "etc",
+      "amount": 9000,
+      "memo": "Mobile app subscription"
+    },
+    {
+      "id": "20250206_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-06",
+      "category": "team_dinner",
+      "amount": 70000,
+      "memo": "Dinner with project team"
+    },
+    {
+      "id": "20250207_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-07",
+      "category": "transportation",
+      "amount": 2800,
+      "memo": "Taxi"
+    },
+    {
+      "id": "20250208_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-08",
+      "category": "shopping",
+      "amount": 47000,
+      "memo": "Shoes"
+    },
+    {
+      "id": "20250209_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-09",
+      "category": "food",
+      "amount": 21000,
+      "memo": "Dinner with mom"
+    },
+    {
+      "id": "20250210_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-10",
+      "category": "etc",
+      "amount": 15000,
+      "memo": "Gift wrapping supplies"
+    },
+    {
+      "id": "20250212_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-12",
+      "category": "food",
+      "amount": 27000,
+      "memo": "Pizza night"
+    },
+    {
+      "id": "20250214_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-14",
+      "category": "shopping",
+      "amount": 80000,
+      "memo": "Valentine's gift"
+    },
+    {
+      "id": "20250215_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-15",
+      "category": "team_dinner",
+      "amount": 69000,
+      "memo": "Company dinner"
+    },
+    {
+      "id": "20250216_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-16",
+      "category": "transportation",
+      "amount": 10000,
+      "memo": "Train ticket"
+    },
+    {
+      "id": "20250218_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-18",
+      "category": "etc",
+      "amount": 6500,
+      "memo": "Cleaning supplies"
+    },
+    {
+      "id": "20250220_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-20",
+      "category": "shopping",
+      "amount": 30000,
+      "memo": "Online deals"
+    },
+    {
+      "id": "20250222_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-22",
+      "category": "food",
+      "amount": 25000,
+      "memo": "Weekend meal out"
+    },
+    {
+      "id": "20250225_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-25",
+      "category": "transportation",
+      "amount": 3300,
+      "memo": "Subway to work"
+    },
+    {
+      "id": "20250227_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-27",
+      "category": "etc",
+      "amount": 5000,
+      "memo": "Laundry"
+    },
+    {
+      "id": "20250228_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-02-28",
+      "category": "food",
+      "amount": 29000,
+      "memo": "End of month dinner"
+    },
+    {
+      "id": "20250301_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-01",
+      "category": "food",
+      "amount": 19000,
+      "memo": "Dinner at Korean restaurant"
+    },
+    {
+      "id": "20250302_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-02",
+      "category": "transportation",
+      "amount": 3500,
+      "memo": "Bus fare"
+    },
+    {
+      "id": "20250303_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-03",
+      "category": "shopping",
+      "amount": 46000,
+      "memo": "Spring clothes"
+    },
+    {
+      "id": "20250304_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-04",
+      "category": "etc",
+      "amount": 10000,
+      "memo": "Monthly app subscription"
+    },
+    {
+      "id": "20250305_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-05",
+      "category": "food",
+      "amount": 21000,
+      "memo": "Sushi lunch"
+    },
+    {
+      "id": "20250306_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-06",
+      "category": "transportation",
+      "amount": 2900,
+      "memo": "Taxi"
+    },
+    {
+      "id": "20250307_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-07",
+      "category": "team_dinner",
+      "amount": 80000,
+      "memo": "Team dinner celebration"
+    },
+    {
+      "id": "20250308_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-08",
+      "category": "shopping",
+      "amount": 33000,
+      "memo": "Online purchase"
+    },
+    {
+      "id": "20250309_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-09",
+      "category": "food",
+      "amount": 16000,
+      "memo": "Weekend lunch"
+    },
+    {
+      "id": "20250310_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-10",
+      "category": "etc",
+      "amount": 7000,
+      "memo": "Bookstore"
+    },
+    {
+      "id": "20250312_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-12",
+      "category": "transportation",
+      "amount": 4000,
+      "memo": "Subway pass"
+    },
+    {
+      "id": "20250314_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-14",
+      "category": "shopping",
+      "amount": 59000,
+      "memo": "White Day gift"
+    },
+    {
+      "id": "20250315_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-15",
+      "category": "food",
+      "amount": 24000,
+      "memo": "Lunch with friend"
+    },
+    {
+      "id": "20250317_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-17",
+      "category": "etc",
+      "amount": 8000,
+      "memo": "Laundry"
+    },
+    {
+      "id": "20250318_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-18",
+      "category": "team_dinner",
+      "amount": 72000,
+      "memo": "Dinner with department"
+    },
+    {
+      "id": "20250320_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-20",
+      "category": "food",
+      "amount": 18500,
+      "memo": "Curry and drink"
+    },
+    {
+      "id": "20250322_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-22",
+      "category": "transportation",
+      "amount": 45000,
+      "memo": "Weekend trip fuel"
+    },
+    {
+      "id": "20250325_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-25",
+      "category": "shopping",
+      "amount": 39000,
+      "memo": "Bag and socks"
+    },
+    {
+      "id": "20250328_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-28",
+      "category": "food",
+      "amount": 31000,
+      "memo": "Korean set menu"
+    },
+    {
+      "id": "20250331_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-03-31",
+      "category": "etc",
+      "amount": 90000,
+      "memo": "Phone bill"
+    },
+    {
+      "id": "20250402_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-02",
+      "category": "food",
+      "amount": 18000,
+      "memo": "Lunch at cafe"
+    },
+    {
+      "id": "20250407_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-07",
+      "category": "transportation",
+      "amount": 3500,
+      "memo": "Bus fare"
+    },
+    {
+      "id": "20250413_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-13",
+      "category": "shopping",
+      "amount": 42000,
+      "memo": "Spring jacket"
+    },
+    {
+      "id": "20250419_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-19",
+      "category": "etc",
+      "amount": 7000,
+      "memo": "Cleaning tools"
+    },
+    {
+      "id": "20250427_expense",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-27",
+      "category": "food",
+      "amount": 23000,
+      "memo": "Dinner with friend"
+    },
+    {
+      "id": "20250401_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-01",
+      "category": "salary",
+      "amount": 160000,
+      "memo": "April salary"
+    },
+    {
+      "id": "20250403_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-03",
+      "category": "allowance",
+      "amount": 20000,
+      "memo": "Allowance from parents"
+    },
+    {
+      "id": "20250405_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-05",
+      "category": "shopping",
+      "amount": 12000,
+      "memo": "Product return refund"
+    },
+    {
+      "id": "20250407_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-07",
+      "category": "etc",
+      "amount": 8000,
+      "memo": "Survey reward"
+    },
+    {
+      "id": "20250410_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-10",
+      "category": "transportation",
+      "amount": 15000,
+      "memo": "Commute support"
+    },
+    {
+      "id": "20250413_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-13",
+      "category": "culture",
+      "amount": 18000,
+      "memo": "Performance reward"
+    },
+    {
+      "id": "20250416_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-16",
+      "category": "team_dinner",
+      "amount": 25000,
+      "memo": "Dinner refund"
+    },
+    {
+      "id": "20250419_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-19",
+      "category": "salary",
+      "amount": 140000,
+      "memo": "Freelance salary"
+    },
+    {
+      "id": "20250424_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-24",
+      "category": "shopping",
+      "amount": 16000,
+      "memo": "Cashback"
+    },
+    {
+      "id": "20250428_income",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-28",
+      "category": "etc",
+      "amount": 9000,
+      "memo": "App event reward"
+    },
+    {
+      "id": "20250408_1",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-08",
+      "category": "food",
+      "amount": 17000,
+      "memo": "Lunch with coworkers"
+    },
+    {
+      "id": "20250408_2",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-08",
+      "category": "transportation",
+      "amount": 3000,
+      "memo": "Bus to office"
+    },
+    {
+      "id": "20250408_3",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-08",
+      "category": "etc",
+      "amount": 10000,
+      "memo": "Cashback from shopping"
+    },
+    {
+      "id": "20250408_4",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-08",
+      "category": "shopping",
+      "amount": 22000,
+      "memo": "New headphones"
+    },
+    {
+      "id": "20250408_5",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-08",
+      "category": "allowance",
+      "amount": 15000,
+      "memo": "Support from family"
+    },
+    {
+      "id": "20250411_01",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-11",
+      "category": "allowance",
+      "amount": 50000,
+      "memo": "Birthday gift from parents"
+    },
+    {
+      "id": "20250411_02",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-11",
+      "category": "food",
+      "amount": 65000,
+      "memo": "Birthday dinner with friends"
+    },
+    {
+      "id": "20250411_03",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-11",
+      "category": "etc",
+      "amount": 12000,
+      "memo": "App event reward"
+    },
+    {
+      "id": "20250411_04",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-11",
+      "category": "shopping",
+      "amount": 47000,
+      "memo": "Bought a new watch"
+    },
+    {
+      "id": "20250411_05",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-11",
+      "category": "team_dinner",
+      "amount": 25000,
+      "memo": "Dinner refund from office"
+    },
+    {
+      "id": "20250411_06",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-11",
+      "category": "transportation",
+      "amount": 8700,
+      "memo": "Taxi to restaurant"
+    },
+    {
+      "id": "20250411_07",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-11",
+      "category": "salary",
+      "amount": 80000,
+      "memo": "Birthday bonus"
+    },
+    {
+      "id": "20250411_08",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-11",
+      "category": "etc",
+      "amount": 11000,
+      "memo": "Gift wrapping service"
+    },
+    {
+      "id": "20250411_09",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-11",
+      "category": "food",
+      "amount": 23000,
+      "memo": "Cake and coffee"
+    },
+    {
+      "id": "20250411_10",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-11",
+      "category": "culture",
+      "amount": 15000,
+      "memo": "Concert ticket refund"
+    },
+    {
+      "id": "20250412_01",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-12",
+      "category": "food",
+      "amount": 48000,
+      "memo": "Couple lunch at Italian restaurant"
+    },
+    {
+      "id": "20250412_02",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-12",
+      "category": "transportation",
+      "amount": 8600,
+      "memo": "Taxi to café"
+    },
+    {
+      "id": "20250412_03",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-12",
+      "category": "shopping",
+      "amount": 23000,
+      "memo": "Matching couple t-shirts"
+    },
+    {
+      "id": "20250412_04",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-12",
+      "category": "allowance",
+      "amount": 20000,
+      "memo": "Allowance from mom for date"
+    },
+    {
+      "id": "20250412_05",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-12",
+      "category": "culture",
+      "amount": 28000,
+      "memo": "Movie tickets for two"
+    },
+    {
+      "id": "20250412_06",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-12",
+      "category": "food",
+      "amount": 9000,
+      "memo": "Dessert café date"
+    },
+    {
+      "id": "20250412_07",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-12",
+      "category": "etc",
+      "amount": 15000,
+      "memo": "Cashback from card"
+    },
+    {
+      "id": "20250412_08",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-12",
+      "category": "etc",
+      "amount": 5000,
+      "memo": "Photo booth at mall"
+    },
+    {
+      "id": "20250412_09",
+      "userId": "aaa",
+      "type": "expense",
+      "date": "2025-04-12",
+      "category": "shopping",
+      "amount": 32000,
+      "memo": "Small gift for girlfriend"
+    },
+    {
+      "id": "20250412_10",
+      "userId": "aaa",
+      "type": "income",
+      "date": "2025-04-12",
+      "category": "team_dinner",
+      "amount": 10000,
+      "memo": "Refund from last night outing"
     }
   ]
 }

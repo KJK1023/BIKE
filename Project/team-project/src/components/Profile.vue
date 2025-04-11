@@ -6,7 +6,6 @@
       <h5>프로필 정보</h5>
       <div class="profile-image">
         <img src="@/assets/default-profile.svg" alt="프로필 이미지" />
-        <button class="change-image-button">이미지 변경</button>
       </div>
       <div class="form-group">
         <label for="name">이름</label>
